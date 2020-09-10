@@ -37,7 +37,7 @@ public class JLabelTimer extends JLabel{
 		this.setBorder(BorderFactory.createLineBorder(Color.red));
 		this.setBackground(Color.white);
 		this.setOpaque(true);
-		this.setFont(new FontGame().loadTimerFont("src/resources/digital-7 (italic).ttf",12));
+		this.setFont(new FontGame().loadTimerFont("../resources/FontLabel.ttf",30));
 	}
 	
 	public void setTimerFuction() throws InterruptedException {		

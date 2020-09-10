@@ -25,7 +25,7 @@ public class JFrameBackGroundLevel1 extends JFrame{
 	
 	public JFrameBackGroundLevel1() throws InterruptedException {
 		super();
-		jPanelBackground = new JPanelBackground("src/resources/FondoNivel1V1.jpg");
+		jPanelBackground = new JPanelBackground("bin/resources/FondoNivel1V1.jpg");
 		init();
 	}
 	private void init() throws InterruptedException {

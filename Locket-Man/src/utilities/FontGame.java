@@ -10,6 +10,7 @@ package utilities;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -34,17 +35,19 @@ public class FontGame {
 	 */
 	
 	public Font loadTimerFont(String pathFont,int sizeFont){		
-        try {
-        	InputStream inputStream = ClassLoader.class.getResourceAsStream(pathFont);
-        	font = Font.createFont(Font.TRUETYPE_FONT,inputStream);
-			//font.deriveFont(Float.valueOf(sizeFont+"f"));
-        	inputStream.close();
+		Font fontt = null;
+		try {
+			//System.out.println("+" +getClass().getResource("").getPath());
+        	File file = new File(getClass().getResource(pathFont).getPath());
+        	font = Font.createFont(Font.TRUETYPE_FONT,file);
+			fontt = font.deriveFont(Font.PLAIN,sizeFont);
+			//file.close();
 			} catch (FontFormatException | IOException e) {
 				e.printStackTrace();
 			}
 			
 		
-		return font;
+		return fontt;
 	}
 
 }
