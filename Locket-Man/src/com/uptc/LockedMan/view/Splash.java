@@ -15,22 +15,34 @@ import java.awt.*;
  */
 public class Splash extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7821254375381909046L;
 	private int time = 0;
+	private PanelImage panelImage;
+	private PanelDrawAvatar panelDrawAvatar;
 
 	public Splash() {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setUndecorated(true);
-		this.setLayout(null);
+//		this.setUndecorated(true);
 		init();
-		this.setLocationRelativeTo(null);
-		this.setVisible(true);
 	}
 	
 	public void init() {
-		
 		this.setSize((int) Constants.DIMENSION_WINDOW_DEFAULT.getWidth()/3, (int) Constants.DIMENSION_WINDOW_DEFAULT.getHeight()/3);
-		this.getContentPane().add(new PanelImage());
-		this.getContentPane().add(new PanelDrawAvatar(0, 0, Constants.PATH_PART_LEG));
+	//	this.setLayout(null);
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+		addComponent();
+	}
+	
+	private void addComponent() {
+		panelImage = new PanelImage();
+		this.setContentPane(panelImage);
+		panelDrawAvatar = new PanelDrawAvatar(Constants.PATH_PART_LEG);
+		this.getContentPane().add(panelDrawAvatar);
+		panelDrawAvatar.setBounds(0, 0, getWidth(), getHeight());
 	}
 	
 	public void showSplash(int timeToShow) {
