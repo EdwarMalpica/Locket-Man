@@ -3,6 +3,7 @@
  */
 package com.uptc.LockedMan.view;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.net.URL;
@@ -26,23 +27,26 @@ public class PanelImage extends JPanel{
 	
 	private Image image;
 	private URL url;
+	private String pathImageFont;
 	
-	public PanelImage() {
+	public PanelImage(String pathImageFont, Dimension size) {
 		super();
+		this.setSize(size);
+		this.pathImageFont = pathImageFont;
 		init();
 		//this.setBounds(0, 0, (int) Constants.DIMENSION_WINDOW_DEFAULT.getWidth()/3, (int) Constants.DIMENSION_WINDOW_DEFAULT.getHeight()/3);
 	}
 	
 	private void init() {
-		this.url = this.getClass().getResource(Constants.PATH_BACKGROUND_SPLASH);
+		this.url = this.getClass().getResource(pathImageFont);
 		this.image = new ImageIcon(url).getImage();
 	}
 
 	@Override
-	public void paint(Graphics g) {
+	public void paintComponent(Graphics g) {
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		this.setOpaque(false);
-		super.paint(g);
+		super.paintComponent(g);
 	}
 	
 }
