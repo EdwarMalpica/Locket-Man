@@ -15,20 +15,18 @@ import viewsGameMenus.JPanelMenu;
 
 public class ControllerJButtonOptions implements MouseListener{
 	
-	private ArrayList<JButtonOption> jButtonOptionList;
 	private JButtonOption jButtonOption;
 	private static ControllerJButtonOptions myControllerJButtonOptions = null;
 
 	public ControllerJButtonOptions() {
 		super(); 
-		jButtonOptionList = new ArrayList<JButtonOption>();
 	}
 	
-	public void addButtonToArray(JButtonOption jButtonOption) {
-		this.jButtonOption = jButtonOption;
-		this.jButtonOptionList.add(jButtonOption);	 
-		 
+	public void setJButtonOption(JButtonOption jButtonOption) {
+		this.jButtonOption = null;
+		this.jButtonOption  = jButtonOption;
 	}
+	
 	
 	public  static ControllerJButtonOptions getControllerJButtonOptions () {
 		 if (myControllerJButtonOptions ==null) {		 

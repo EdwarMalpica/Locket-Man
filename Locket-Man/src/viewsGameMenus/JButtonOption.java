@@ -53,7 +53,7 @@ public class JButtonOption extends JButton{
 		jLabelTextButton.setForeground(Color.white);
 		this.setBorder(BorderFactory.createLineBorder(Color.white,3,true));
 		this.addMouseListener(controllerJButtonOptions);
-		controllerJButtonOptions.addButtonToArray(this);
+		controllerJButtonOptions.setJButtonOption(this);
 		
 		
 		
