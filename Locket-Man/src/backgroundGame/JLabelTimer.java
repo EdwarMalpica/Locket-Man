@@ -15,6 +15,7 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.border.TitledBorder;
 
 import utilities.FontGame;
 
@@ -25,22 +26,33 @@ import utilities.FontGame;
 public class JLabelTimer extends JLabel{
 	
 	private int minutes,seconds,milseconds; 
+	
 
 	public JLabelTimer() {
-		super("",SwingConstants.CENTER);
-		this.setLayout(new FlowLayout(FlowLayout.CENTER));
+		super(ConstanBackground.START_VALUE_TIMER,SwingConstants.CENTER);		
 		init();
 		
 	}
+	
 	private void init() {
-		this.setBounds(969,53,273,80);		
-		this.setBorder(BorderFactory.createLineBorder(Color.red));
-		this.setBackground(Color.white);
-		this.setOpaque(true);
-		this.setFont(new FontGame().loadTimerFont("../resources/FontLabel.ttf",30));
+	    int[] bounds = ConstanBackground.BOUNDS_TIMER;
+		this.setLayout(new FlowLayout(FlowLayout.CENTER));
+		this.setBounds(bounds[0],bounds[1],bounds[2],bounds[3]);
+		this.setBorder(BorderFactory.createRaisedBevelBorder());
+		setTitle();
+		this.setFont(ConstanBackground.TIMER_FONT);
 	}
 	
-	public void setTimerFuction() throws InterruptedException {		
+	private void setTitle() {
+		this.setBorder(BorderFactory.createTitledBorder(this.getBorder(),ConstanBackground.TIMER_NAME,TitledBorder.CENTER,TitledBorder.TOP,
+				ConstanBackground.TIMER_FONT_1,Color.white));
+		
+	}
+
+	
+	
+	public void setTimerFuction() throws InterruptedException {	
+		String time = "";
 		while (minutes != 60) {
 				++milseconds;
 			if (milseconds == 60) {
@@ -52,8 +64,8 @@ public class JLabelTimer extends JLabel{
 				++minutes;
 			}
 			Thread.sleep(10);
-			String a = minutes+":"+seconds+":"+milseconds;
-			this.setText(a);;
+			time = minutes+":"+seconds;
+			this.setText(time);;
 			
 		}		
 		

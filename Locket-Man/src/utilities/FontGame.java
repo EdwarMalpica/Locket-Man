@@ -24,8 +24,8 @@ public class FontGame {
 	private Font font = null;
 	
 	public FontGame() {
-		nameFontDigitalNumbers = "DS-Digital";
 	}
+	
 	/**
 	 * Cragamos la fuente para nuestro timer sin instalarla
 	 * @param pathFont ruta del archivo
@@ -34,18 +34,15 @@ public class FontGame {
 	 * @return
 	 */
 	
-	public Font loadTimerFont(String pathFont,int sizeFont){		
+	public Font loadFont(String pathFont,int sizeFont){		
 		Font fontt = null;
 		try {
-			//System.out.println("+" +getClass().getResource("").getPath());
         	File file = new File(getClass().getResource(pathFont).getPath());
         	font = Font.createFont(Font.TRUETYPE_FONT,file);
-			fontt = font.deriveFont(Font.PLAIN,sizeFont);
-			//file.close();
+			fontt = font.deriveFont(Font.BOLD,sizeFont);
 			} catch (FontFormatException | IOException e) {
 				e.printStackTrace();
-			}
-			
+			}			
 		
 		return fontt;
 	}

@@ -14,32 +14,49 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 import backgroundGame.JPanelBackground;
+import viewsGameMenus.WindowMenu;
 
 /**
  * @author Esteban
  *
  */
-public class JFrameBackGroundLevel1 extends JFrame{
+public class JFrameBackGround extends JFrame{
 
 	private JPanelBackground jPanelBackground;
+	private JLabelTimer jLabelTimer;
 	
-	public JFrameBackGroundLevel1() throws InterruptedException {
+	public JFrameBackGround(String pathImageBackground) throws InterruptedException {
 		super();
-		jPanelBackground = new JPanelBackground("bin/resources/FondoNivel1V1.jpg");
+		jPanelBackground = new JPanelBackground(pathImageBackground);
 		init();
 	}
+	
 	private void init() throws InterruptedException {
 		this.setSize(jPanelBackground.getWidth(),jPanelBackground.getHeight());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(jPanelBackground);		
 		this.setLocationRelativeTo(null);
-		this.setVisible(true);
-		jPanelBackground.getTimer().setTimerFuction();
+		this.setVisible(true);		
 		
 	}
+	
+	private void startTimer() {
+		try {
+			jPanelBackground.getTimer().setTimerFuction();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * @return the jPanelBackground
+	 */
+	public JPanelBackground getjPanelBackground() {
+		return jPanelBackground;
+	}
+	
+	
+	
 
-	public static void main(String[] args) throws InterruptedException {
-		JFrameBackGroundLevel1 a = new JFrameBackGroundLevel1();
-		
-	}
+	
 }

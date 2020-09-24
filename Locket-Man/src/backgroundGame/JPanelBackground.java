@@ -26,13 +26,13 @@ public class JPanelBackground extends JPanel {
 
 	private ImageIcon imageBackgound; //Esta imagen sera el paisajes
 	private JPanel jPanelBackground;
-	private JLabelTimer timer;
+	private JLabelTimer jLabelTimer;
 	
 	/**
 	 * @return the timer
 	 */
 	public JLabelTimer getTimer() {
-		return timer;
+		return jLabelTimer;
 	}
 
 	
@@ -46,11 +46,10 @@ public class JPanelBackground extends JPanel {
 		
 	private void init() {		
         this.setSize(new Dimension(imageBackgound.getIconWidth(),imageBackgound.getIconHeight()));
-        timer = new JLabelTimer();
-        this.add(timer);
-        
-	}
-	
+        System.out.println(imageBackgound.getIconWidth()+"  "+imageBackgound.getIconHeight());
+        jLabelTimer = new JLabelTimer();
+        this.add(jLabelTimer);        
+	}	
 	
 	@Override
     public void paint(Graphics graphics){
@@ -58,7 +57,20 @@ public class JPanelBackground extends JPanel {
 	    graphics.drawImage(imageBackGround,0,0,this.getWidth(),this.getHeight(), this);
 	    this.setOpaque(false);
 	    super.paint(graphics);
-    } 
+    }
+
+
+	
+
+	/**
+	 * @return the jLabelTimer
+	 */
+	public JLabelTimer getjLabelTimer() {
+		return jLabelTimer;
+	}
+
+
+
 	
 	
 	
