@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import viewsGameMenus.JButtonOption;
-import viewsGameMenus.JPanelMenu;
+import viewsGameMenus.JPanelMenu; 
 
 public class ControllerJButtonOptions implements MouseListener{
 	
