@@ -20,7 +20,7 @@ public class ControllerJButtonOptions implements MouseListener{
 	private static ControllerJButtonOptions myControllerJButtonOptions = null;
 
 	public ControllerJButtonOptions() {
-		super();
+		super(); 
 		jButtonOptionList = new ArrayList<JButtonOption>();
 	}
 	
