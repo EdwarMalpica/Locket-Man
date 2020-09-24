@@ -26,7 +26,7 @@ public class ControllerJButtonOptions implements MouseListener{
 	
 	public void addButtonToArray(JButtonOption jButtonOption) {
 		this.jButtonOption = jButtonOption;
-		this.jButtonOptionList.add(jButtonOption);	
+		this.jButtonOptionList.add(jButtonOption);	 
 		
 	}
 	
