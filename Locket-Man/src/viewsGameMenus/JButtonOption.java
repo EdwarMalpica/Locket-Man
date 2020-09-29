@@ -32,13 +32,15 @@ public class JButtonOption extends JButton{
 	 * @param dimension Tamaño del contenedor
 	 * @param buttonText Texto del boton
 	 */
-	
 	private JLabel jLabelTextButton;
-	public JButtonOption(Container container, String buttonText) {
+	public JButtonOption(Container container, String buttonText, String buttonName) {
 		super();
-		jLabelTextButton = new JLabel(buttonText);
+		jLabelTextButton = new JLabelTextGame();
+		jLabelTextButton.setText(buttonText);
 		this.container = container;
+		this.setName(buttonName);
 		init();
+		
 	}
 	
 
@@ -47,16 +49,9 @@ public class JButtonOption extends JButton{
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));		
 		img = new ImageIcon(ConstanBackground.PATH_IMAGE_BACKGROUND_BUTTONS);
 		this.setIcon(img);		
-		this.setPreferredSize(new Dimension(container.getWidth()-(container.getWidth()/4),container.getHeight()/6));
 		this.add(jLabelTextButton);
-		jLabelTextButton.setFont(ConstanBackground.SUMMER_FONT_1);
-		jLabelTextButton.setForeground(Color.white);
 		this.setBorder(BorderFactory.createLineBorder(Color.white,3,true));
 		this.addMouseListener(controllerJButtonOptions);
-		controllerJButtonOptions.setJButtonOption(this);
-		
-		
-		
 	}
 	/**
 	 * Para el efecto hover en los botones determinamos que tan opaco quederemos
@@ -64,13 +59,10 @@ public class JButtonOption extends JButton{
 	 */
 	public void setOpacity(float opacity) {
 		this.opacity = opacity;
-		// Actualiza el control
 		repaint();
 	}
 	@Override
 	public void paintComponent(Graphics g) {
-		// Creamos un objeto de tipo Graphics2D y casteamos el valor que pasa
-		// por parametro
 		Graphics2D g2 = (Graphics2D) g;
 		// Pasamos nuestra variable "opacity" al metodo
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
@@ -78,6 +70,18 @@ public class JButtonOption extends JButton{
 		super.paintComponent(g2);
 	}
 
+	/**
+	 * Establece el tamaño apto para cualquiera de los menus de opciones
+	 */
+	public void setSizeMainMenu() {
+		this.setPreferredSize(new Dimension(container.getWidth()-(container.getWidth()/4),container.getHeight()/6));
+	}
+	/**
+	 * Establece el tamaño apto para cualquiera de los menus normales
+	 */
+	public void setSizeNormalMenu() {
+		this.setPreferredSize(new Dimension(container.getWidth()/2,container.getHeight()/3));
+	}
 
 	/**
 	 * @return the container

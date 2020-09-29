@@ -13,22 +13,24 @@ public class JPanelMenu extends JPanel{
 	
 	private Container container;
 
-	public JPanelMenu(Container container,String textButton) {
+	public JPanelMenu(Container container) {
 		super();
 		this.container = container;
-		init(textButton);	
+		init();
 	}
 	
 
-	private void init(String textButton) {			
+	private void init() {			
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.setSize(container.getWidth(), container.getHeight());
 		this.setOpaque(false);
-		setButton(textButton);
 	}
 	
-	public void setButton(String textButton) {
-		this.add(new JButtonOption(this, textButton));	
+	
+	public void setButton(String textButton,String buttonName) {
+		JButtonOption a = new JButtonOption(this, textButton,buttonName);
+		a.setSizeMainMenu();
+		this.add(a);	
 	}
 
 

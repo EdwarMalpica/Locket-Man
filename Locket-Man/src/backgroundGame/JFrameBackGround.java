@@ -33,7 +33,6 @@ public class JFrameBackGround extends JFrame{
 	
 	private void init() throws InterruptedException {
 		this.setSize(jPanelBackground.getWidth(),jPanelBackground.getHeight());
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(jPanelBackground);		
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);		

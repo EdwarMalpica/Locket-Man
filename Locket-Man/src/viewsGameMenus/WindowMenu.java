@@ -17,53 +17,51 @@ import javax.swing.JPanel;
 
 import backgroundGame.ConstanBackground;
 
-public class WindowMenu extends Window{
+public class WindowMenu extends WindowGame{
 	
 	private int numberDivisions;
-	private JPanel jPanel;
-	private ImageIcon img;
 	private String[] buttonsTextList;
+	private String[] buttonsNameList;
 
-	public WindowMenu(int numberOptions,String[] buttonsTextList) {
-		super(null);
-		numberDivisions = numberOptions;
+	public WindowMenu(String[] buttonsTextList,String[] buttonsNameList) {
+		super();
+		numberDivisions = buttonsTextList.length;
 		this.buttonsTextList = buttonsTextList;
-		verifyNumberTextButton();
+		this.buttonsNameList = buttonsNameList;
+		init();
 		
 	}
 	
-	private void init() {
-		this.add(jPanel);
-		jPanel.setBackground(Color.blue);
-		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	@Override
+	protected void init() {
+		super.init();
 		jPanel.setLayout(new GridLayout(numberDivisions,0));
-		verifyCorrectSize(dimension);
-		this.setLocationRelativeTo(null);	
 		addPanels();
-		
 	}
+	
+	
+
 	/**
 	 * Verifica el tamaño del array sea el mismo que el numero de botones que se vayan a agregar
 	 */
 	
-	private void verifyNumberTextButton() {
-		if (buttonsTextList.length != numberDivisions) {
+	private void verifyCorrectSizeArray() {
+		if (buttonsTextList.length != buttonsNameList.length) {
 			System.out.println("Argumentos innecesarios");
-			//Tratar una excepcion
 		}else {
-			jPanel = new JPanel();
-			img = new ImageIcon(ConstanBackground.PATH_IMAGE_BACKGROUND_MENU);
+			this.setPropertiesWindow();
 			init();
-			this.setVisible(true);
 		}
 	}
 	
 	/**
-	 * Añade los paneles donde van a estar los botones para cada opcion
+	 * Añade los paneles donde van a estar los botones para cada opcion, recorre la lista donde estan los textos de cada boton
 	 */
 	private void addPanels() {		
 		for (int i = 0; i < numberDivisions; i++) {
-			JPanelMenu jPanelPauseOption = new JPanelMenu(this,buttonsTextList[i]);	
+			JPanelMenu jPanelPauseOption = new JPanelMenu(this);	
+			jPanelPauseOption.setButton(buttonsTextList[i],buttonsNameList[i]);
 			if (i == 0) {
 				jPanel.add(new JPanelHeaderMenu(buttonsTextList[i],this));
 			}else {
@@ -72,28 +70,23 @@ public class WindowMenu extends Window{
 		}
 	}
 
-	/**
-	 * Pintamos la imagen que pasamos por parametro en el fondo del menu
-	 */
-	 @Override
-	public void paint(Graphics graphics){
-		 Image imageBackGround = img.getImage();        
-	     graphics.drawImage(imageBackGround,0,0,this.getWidth(),this.getHeight(), this);
-	     jPanel.setOpaque(false);
-	     super.paint(graphics);
-	 }	
+	
 	 
+
 	 /**
 	  * Verificamos el numero de botones que queremos poner para dar el tamaño indicado a la ventana de largo
 	  */
-	 private void verifyCorrectSize(Dimension dimension) {
-		 if (numberDivisions > 7) {
+
+	@Override
+	public void verifyCorrectSize() {
+		if (numberDivisions > 7) {
 			int newHeight = this.getHeight()+((dimension.height/numberDivisions)*numberDivisions);
 			this.setSize(new Dimension(dimension.width/3,newHeight));
 		}else {
 			this.setSize(dimension.width/3,dimension.height/2);
 		}
-	 }
+		
+	}
 	
 	 
 }
