@@ -4,6 +4,9 @@
  */
 package com.uptc.LockedMan.controller;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import com.uptc.LockedMan.constants.Constants;
 import com.uptc.LockedMan.model.ModelManager;
 import com.uptc.LockedMan.view.JFramePrincipal;
@@ -12,14 +15,29 @@ import com.uptc.LockedMan.view.JFramePrincipal;
  * @author eduar
  *
  */
-public class Controller {
+public class Controller implements KeyListener {
 
 	private ModelManager manager;
 	private JFramePrincipal framePrincipal;
 	private static Controller controller;
+	private Thread threadJump;
 	
+	/**
+	 * @param manager el manager a establecer
+	 */
+	public void setManager(ModelManager manager) {
+		this.manager = manager;
+	}
+
+	/**
+	 * @param framePrincipal el framePrincipal a establecer
+	 */
+	public void setFramePrincipal(JFramePrincipal framePrincipal) {
+		this.framePrincipal = framePrincipal;
+	}
+
 	private Controller() {
-			init();
+		
 	}
 	
 	public static Controller getInstanceOf() {
@@ -29,18 +47,86 @@ public class Controller {
 		return controller;
 	}
 	public void init() {
-		manager = new ModelManager();
-		framePrincipal = new JFramePrincipal();
 		framePrincipal.setVisible(true);
 		starAnimation();
 	}
 	
 	
 	private void starAnimation() {
-		framePrincipal.starAnimation(Constants.PATH_IMAGE_PERSON);
+		//framePrincipal.starAnimation(Constants.PATH_IMAGE_PERSON);
 		manager.starAnimation();
 		Thread threadAnimation = new Thread(new ThreadAnimationPerson(framePrincipal,manager));
 		threadAnimation.start();
+	}
+	private void jumpAnimation() {
+		
+		threadJump = new Thread(new ThreadAnimationJumpPerson(framePrincipal, manager));
+		threadJump.start();
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyChar() == 'a'||e.getKeyChar() == 'A' || e.getExtendedKeyCode() == KeyEvent.VK_LEFT) {
+			if(threadJump.isAlive()) {
+				movePersonLeftJump();
+			}else {
+				movePersonLeft();
+			}
+			
+		}
+		if(e.getKeyChar() == 'd'||e.getKeyChar() == 'D' || e.getExtendedKeyCode() == KeyEvent.VK_RIGHT) {
+			if(threadJump.isAlive()) {
+				movePersonRightJump();
+			}else {
+				movePersonRight();
+			}
+		}
+		if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W' || e.getExtendedKeyCode() == KeyEvent.VK_UP) {
+				
+				jumpAnimation();
+				
+		}
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyChar() == 'a'||e.getKeyChar() == 'A' || e.getExtendedKeyCode() == KeyEvent.VK_LEFT) {
+			movePersonStay();
+		}
+		if(e.getKeyChar() == 'd'||e.getKeyChar() == 'D' || e.getExtendedKeyCode() == KeyEvent.VK_RIGHT) {
+			
+			movePersonStay();
+		}
+//		if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W' || e.getExtendedKeyCode() == KeyEvent.VK_UP) {
+//			
+//			
+//		}
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Esbozo de método generado automáticamente
+		
+	}
+	
+	public void movePersonStay() {
+		framePrincipal.movePersonStay();
+	}
+	
+	public void movePersonRight() {
+		framePrincipal.movePersonRight();
+	}
+	public void movePersonLeft() {
+		framePrincipal.movePersonLeft();
+	}
+	public void movePersonRightJump() {
+		framePrincipal.movePersonRightJump();
+	}
+	public void movePersonLeftJump() {
+		framePrincipal.movePersonLeftJump();
 	}
 	
 }

@@ -56,7 +56,7 @@ public class JFramePrincipal extends JFrame {
 //		img = toolkit.getImage(getClass().getResource("/resources/person1.png"));
 //		bi = new BufferedImage(Constants.SCREEN_FRAME.width,Constants.SCREEN_FRAME.height, BufferedImage.TYPE_INT_RGB);
 //		hilo.start();
-		starAnimation(Constants.PATH_IMAGE_PERSON);
+		starAnimation(Constants.PATH_IMAGE_PERSON_STAY);
 	}
 
 	/*
@@ -65,6 +65,7 @@ public class JFramePrincipal extends JFrame {
 	public void starAnimation(String pathImage) {
 		jPanelPerson = new JPanelPerson(pathImage);
 		this.add(jPanelPerson);
+		 
 		
 	}
 	
@@ -72,7 +73,25 @@ public class JFramePrincipal extends JFrame {
 		jPanelPerson.setIncrement(increment);
 	}
 
-
+	public void movePersonStay() {
+		jPanelPerson.movePersonStay();
+	}
+	
+	public void movePersonRight() {
+		jPanelPerson.movePersonRight();
+	}
+	public void movePersonLeft() {
+		jPanelPerson.movePersonLeft();
+	}
+	public void movePersonRightJump() {
+		jPanelPerson.movePersonRightJump();
+	}
+	public void movePersonLeftJump() {
+		jPanelPerson.movePersonLeftJump();
+	}
+	public void movePersonJumpRight() {
+		jPanelPerson.movePersonJumpRight();
+	}
 	
 //	@Override 
 //	public void paint(Graphics g) {
