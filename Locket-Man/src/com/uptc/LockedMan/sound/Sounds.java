@@ -57,6 +57,7 @@ public class Sounds {
             gainControl.setValue(volumeDown); // Reduce volume by 10 decibels.
             clip2.loop(waitInSeconds * 1000);
         } catch (Exception e) {
+        	System.out.println("No se encontró el sonido");
         }
     }
 
