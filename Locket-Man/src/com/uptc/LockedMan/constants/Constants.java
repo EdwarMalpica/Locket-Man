@@ -13,6 +13,7 @@ public class Constants {
 	public static final Dimension DIMENSION_BUTTON_PLAY = new Dimension(128, 128);
 	public static final Dimension DIMENSION_BUTTON_CONFIG = new Dimension(64, 64);
 	public static final Dimension DIMENSION_PANEL_CONFIG = new Dimension(455, 200);
+	public static final Dimension DIMENSION_BUTTON_CLOSE = new Dimension(32, 32);
 	
 	//Localizaciones
 	public static final Point POINT_LABEL_FONT_MARIO = new Point(30, 190);
@@ -49,6 +50,9 @@ public class Constants {
 	public static final String PATH_BUTTON_CONFIG = "../../resources/buttonConfig.png";
 	public static final String PATH_BUTTON_ABOUT = "../../resources/about.png";
 	public static final String PATH_BUTTON_CLOSE = "../../resources/btnClose.png";
+	public static final String PATH_BUTTON_LANGUAGE = "../../resources/lenguage.png";
+	public static final String PATH_LABEL_SOUND = "../../resources/sonido.png";
+	public static final String PATH_BUTTON_CLOSE_BLUE = "../../resources/back.png";
 	public static final String PATH_FILE_ABOUT_US = "C:\\Users\\SAMSUNG\\git\\Locket-Ma\\Locket-Man\\src\\com\\uptc\\LockedMan\\persistence\\aboutUs.txt";
 	
 	//Nombres de Fuentes...

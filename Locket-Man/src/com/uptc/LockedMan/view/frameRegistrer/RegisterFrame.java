@@ -1,8 +1,11 @@
 package com.uptc.LockedMan.view.frameRegistrer;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
@@ -50,7 +53,7 @@ public class RegisterFrame extends JFrame{
 		this.panelContainer = new PanelContainer(this.getSize(), Constants.POINT_CERO);
 		
 		//panel de configuraciones
-		optionsPanel = new PanelOptions(new Dimension(this.getWidth(), this.getHeight()/2), new Point(0, (0 - this.getHeight()/2)));
+		optionsPanel = new PanelOptions(new Dimension(this.getWidth()/4, this.getHeight()), new Point((0 - this.getWidth()/4), 0));
 		
 		this.getContentPane().add(optionsPanel);
 		this.getContentPane().add(scrollPane);
@@ -58,8 +61,9 @@ public class RegisterFrame extends JFrame{
 	}
 	
 	public void setEvents() {
-		panelContainer.getButtonConfig().addActionListener(new EventConfig(this, optionsPanel, Constants.ADVANCE, Constants.UP_OR_DOWN, optionsPanel.getY(), 0));
+		panelContainer.getButtonConfig().addActionListener(new EventConfig(this, optionsPanel, Constants.ADVANCE, Constants.MOVING_SIDE, optionsPanel.getX(), 0));
 		panelContainer.getButtonAbout().addActionListener(new EventConfig(this, scrollPane, Constants.BACK, Constants.UP_OR_DOWN, scrollPane.getY(), (int)this.getHeight()/2));
 		panelConfig.getButtonClose().addActionListener(new EventConfig(this, scrollPane, Constants.ADVANCE, Constants.UP_OR_DOWN, this.getHeight()/2, this.getHeight()));
+		optionsPanel.getButtonClose().addActionListener(new EventConfig(this, optionsPanel, Constants.BACK, Constants.MOVING_SIDE, 0, (0 - this.getWidth()/4)));
 	}
 }

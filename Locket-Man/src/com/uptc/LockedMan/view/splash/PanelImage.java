@@ -33,8 +33,7 @@ public class PanelImage extends JPanel{
 		super();
 		this.setSize(size);
 		this.pathImageFont = pathImageFont;
-		init();
-		//this.setBounds(0, 0, (int) Constants.DIMENSION_WINDOW_DEFAULT.getWidth()/3, (int) Constants.DIMENSION_WINDOW_DEFAULT.getHeight()/3);
+		init();	
 	}
 	
 	private void init() {
@@ -43,10 +42,9 @@ public class PanelImage extends JPanel{
 	}
 
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paint(Graphics g) {
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		this.setOpaque(false);
-		super.paintComponent(g);
-	}
-	
+		super.paint(g);
+	}	
 }
