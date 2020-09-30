@@ -15,7 +15,7 @@ import java.awt.Toolkit;
 public class Constants {
 
 	public static final Dimension SCREEN_SIZE = Toolkit.getDefaultToolkit().getScreenSize();
-	public static final Dimension SCREEN_FRAME = new Dimension(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2);
+	public static final Dimension SCREEN_FRAME = new Dimension(1300,740);
 	
 	
 	

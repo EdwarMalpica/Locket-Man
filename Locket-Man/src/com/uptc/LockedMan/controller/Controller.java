@@ -4,6 +4,7 @@
  */
 package com.uptc.LockedMan.controller;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -57,6 +58,7 @@ public class Controller implements KeyListener {
 		manager.starAnimation();
 		Thread threadAnimation = new Thread(new ThreadAnimationPerson(framePrincipal,manager));
 		threadAnimation.start();
+		jumpAnimation();
 	}
 	private void jumpAnimation() {
 		
@@ -71,7 +73,13 @@ public class Controller implements KeyListener {
 			if(threadJump.isAlive()) {
 				movePersonLeftJump();
 			}else {
-				movePersonLeft();
+				
+				if(getColisionWhitPerson()) {
+					movePersonLeft();	
+				}else {
+					movePersonDown();
+				}
+				
 			}
 			
 		}
@@ -79,11 +87,16 @@ public class Controller implements KeyListener {
 			if(threadJump.isAlive()) {
 				movePersonRightJump();
 			}else {
-				movePersonRight();
+				
+				if(getColisionWhitPerson()) {
+					movePersonRight();	
+				}else {
+					movePersonDown();
+				}
+				
 			}
 		}
 		if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W' || e.getExtendedKeyCode() == KeyEvent.VK_UP) {
-				
 				jumpAnimation();
 				
 		}
@@ -117,9 +130,11 @@ public class Controller implements KeyListener {
 	}
 	
 	public void movePersonRight() {
+//		int y = framePrincipal.getRectangleEnvironment().y;
 		framePrincipal.movePersonRight();
 	}
 	public void movePersonLeft() {
+//		int y = framePrincipal.getRectangleEnvironment().y;
 		framePrincipal.movePersonLeft();
 	}
 	public void movePersonRightJump() {
@@ -127,6 +142,13 @@ public class Controller implements KeyListener {
 	}
 	public void movePersonLeftJump() {
 		framePrincipal.movePersonLeftJump();
+	}
+	public void movePersonDown() {
+		framePrincipal.movePersonDown();
+	}
+	
+	public boolean getColisionWhitPerson() {
+		return framePrincipal.colisionWithPerson();
 	}
 	
 }

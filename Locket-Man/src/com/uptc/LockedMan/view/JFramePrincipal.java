@@ -7,6 +7,7 @@ package com.uptc.LockedMan.view;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
@@ -91,6 +92,16 @@ public class JFramePrincipal extends JFrame {
 	}
 	public void movePersonJumpRight() {
 		jPanelPerson.movePersonJumpRight();
+	}
+	public void movePersonDown() {
+		jPanelPerson.movePersonDown();
+	}
+	public boolean colisionWithPerson() {
+		return jPanelPerson.colisionWithPerson();
+	}
+	
+	public Rectangle getRectangleEnvironment() {
+		return jPanelPerson.getCurrentRectangle();
 	}
 	
 //	@Override 
