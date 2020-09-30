@@ -16,8 +16,8 @@ import com.uptc.LockedMan.constants.Constants;
  */
 public class Sounds {
 
-    AudioClip infinite;
-    AudioClip clip;
+    Clip infinite;
+    Clip clip;
     Clip clip2;
 
     /**
@@ -33,10 +33,11 @@ public class Sounds {
      * @param wait tiempo que dura el sonido reproduciendose
      */
     public void playSound(String sound, int wait) {
-        URL url = Sounds.class.getResource(Constants.PATH_DIRECTORY_SOUNDS + sound + Constants.FORMAT_WAV);
-        clip = Applet.newAudioClip(url);
-        clip.play();
         try {
+        	clip = AudioSystem.getClip();
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Sounds.class.getResource(Constants.PATH_DIRECTORY_SOUNDS + sound + Constants.FORMAT_WAV));
+            clip.open(audioInputStream);
+            clip.start();
             Thread.sleep(wait);
         } catch (Exception e) {
         }
@@ -60,6 +61,36 @@ public class Sounds {
         	System.out.println("No se encontró el sonido");
         }
     }
+    
+    /**
+     * reduce o aumenta el volumen del sonido principal
+     * @param value cuanto volumen desea disminuir o aumentar
+     */
+    public void setVolumeAllSound(float value) {
+    	FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(value);
+    }
+    
+    /**
+     * reduce o aumenta el volumen del sonido repetitivo
+     * @param value cuanto volumen desea aumentar o disminuir
+     */
+    public void setVolumeSoundLoop(float value) {
+    	if (((int) value) == -15) {
+			infinite.stop();
+		}else {
+			if (!infinite.isActive()) {
+				infinite.loop(3000);
+			}
+			
+			if (((int) value) == -5) {
+				value = 0;
+			}
+			
+			FloatControl gainControl = (FloatControl) infinite.getControl(FloatControl.Type.MASTER_GAIN);
+	        gainControl.setValue(value);
+		}
+    }
 
     /**
      * inicia un sonido que se va a repetir indefinidamente
@@ -68,10 +99,15 @@ public class Sounds {
      * @throws InterruptedException en caso de no encontrar la ruta del sonido
      */
     public void loopSound(String sound, int timeSound) throws InterruptedException {
-        URL url = Sounds.class.getResource(Constants.PATH_DIRECTORY_SOUNDS + sound + Constants.FORMAT_WAV);
-        infinite = Applet.newAudioClip(url);
-        infinite.loop();
-        Thread.sleep(timeSound);
+    	try {
+    		infinite = AudioSystem.getClip();
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Sounds.class.getResource(Constants.PATH_DIRECTORY_SOUNDS + sound + Constants.FORMAT_WAV));
+            infinite.open(audioInputStream);
+            infinite.loop(timeSound * 1000);
+            Thread.sleep(timeSound);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
     }
     
     /**

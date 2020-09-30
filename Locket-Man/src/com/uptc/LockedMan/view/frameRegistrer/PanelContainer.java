@@ -1,5 +1,6 @@
 package com.uptc.LockedMan.view.frameRegistrer;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -8,12 +9,17 @@ import javax.swing.JPanel;
 
 import com.uptc.LockedMan.constants.Constants;
 import com.uptc.LockedMan.view.frameRegistrer.JButtonPlay;
+import com.uptc.LockedMan.view.splash.LabelPercent;
 
 public class PanelContainer extends JPanel{
 	
 	private JButtonPlay buttonPlay;
 	private JButtonPlay buttonConfig;
 	private JButtonPlay buttonAbout;
+	
+	private LabelPercent labelConfig;
+	private LabelPercent labelInitPlay;
+	private LabelPercent labelAbout;
 
 	private Dimension size;
 	private Point locale;
@@ -42,9 +48,16 @@ public class PanelContainer extends JPanel{
 		localeAboutButton = pointIntermediate(new Point(this.getWidth()/3, this.getHeight()), new Point((int)Constants.DIMENSION_BUTTON_CONFIG.getWidth(), (int)Constants.DIMENSION_BUTTON_CONFIG.getHeight()));
 		buttonAbout = new JButtonPlay(Constants.DIMENSION_BUTTON_CONFIG, Constants.PATH_BUTTON_ABOUT, new Point(localeAboutButton.x * 8, localeAboutButton.y));
 		
+		labelAbout = new LabelPercent(Constants.MESSAGE_ABOUT_US, Constants.SIZE_FONT_OPTIONS);
+		labelAbout.setSize(Constants.DIMENSION_LABEL_ABOUT);
+		labelAbout.setLocation(new Point((buttonAbout.getX() + buttonAbout.getWidth()/2) - labelAbout.getWidth()/2, buttonAbout.getY() + buttonAbout.getHeight()));
+		labelAbout.setForeground(Color.black);
+		
 		this.add(buttonAbout);
 		this.add(buttonConfig);
 		this.add(buttonPlay);
+		
+		this.add(labelAbout);
 	}
 	
 	public void addComponent(Component component) {

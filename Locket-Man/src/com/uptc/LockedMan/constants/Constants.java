@@ -14,6 +14,9 @@ public class Constants {
 	public static final Dimension DIMENSION_BUTTON_CONFIG = new Dimension(64, 64);
 	public static final Dimension DIMENSION_PANEL_CONFIG = new Dimension(455, 200);
 	public static final Dimension DIMENSION_BUTTON_CLOSE = new Dimension(32, 32);
+	public static final Dimension DIMENSION_LABEL_ABOUT = new Dimension(150, 40);
+	public static final Dimension DIMENSION_LABEL_INIT_PLAY = new Dimension(60, 30);
+	public static final Dimension DIMENSION_LABEL_CONFIG = new Dimension(70, 30);
 	
 	//Localizaciones
 	public static final Point POINT_LABEL_FONT_MARIO = new Point(30, 190);
@@ -27,6 +30,7 @@ public class Constants {
 	public static final int SIZE_FONT_MARIO_PERCENT = 100;
 	public static final int SIZE_WELLCOME_MESSAGE = 62;
 	public static final int SIZE_FONT_VERSION = 28;
+	public static final int SIZE_FONT_OPTIONS = 20;
 	
 	//Mensajes
 	public static final String MESSAGE_WELCOME = "BIENVENIDO";
@@ -37,6 +41,9 @@ public class Constants {
 	public static final String LETTER_A_MESSAGE = "A";
 	public static final String NAME_PLAY = "LOCKED-MAN";
 	public static final String VERSION_PLAY = "version 1.0";
+	public static final String MESSAGE_OPTIONS = "OPCIONES";
+	public static final String MESSAGE_PLAY_GAME = "JUGAR";
+	public static final String MESSAGE_ABOUT_US = "ACERCA DE";
 	
 	//Direcciones 
 	public static final String PATH_BACKGROUND_SPLASH = "../../resources/background8.jpg";
@@ -67,4 +74,7 @@ public class Constants {
 	public static final String PRINCIPAL_SOUND = "espera2";
 	public static final String CRAHS_SOUND = "golpe";
 	public static final String RUN_AVATAR = "caminarPaso";
+	public static final String SOUND_REGIST = "electronicFantasy";
+	public static final String CLICK_SOUND = "click";
+	public static final String UP_WINDOW = "up";
 }

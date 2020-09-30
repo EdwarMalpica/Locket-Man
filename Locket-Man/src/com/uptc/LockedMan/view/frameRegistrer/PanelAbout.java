@@ -24,6 +24,7 @@ public class PanelAbout extends JPanel{
 	public void init() {
 		buttonClose = new JButtonPlay(new Dimension(30, 30), Constants.PATH_BUTTON_CLOSE, new Point(this.getWidth() - 30, 0));
 		textArea = new JTextAreaContainer(new Dimension(this.getWidth(), this.getHeight()), new Point(0, 30), Constants.PATH_FILE_ABOUT_US);
+		textArea.setPreferredSize(new Dimension(this.getWidth(), this.getHeight()* 3));
 		this.add(buttonClose);
 		this.add(textArea);
 	}
