@@ -49,8 +49,7 @@ public class WindowRegistry extends WindowGame{
 		JPanel panel = new JPanel();
 		JTextField jTextField = new JTextField();
 		jTextField.setPreferredSize(new Dimension(this.getWidth()/2,40));
-		jTextField.setEnabled(true);
-		jTextField.setFocusable(true);
+
 		panel.add(jTextField);
 		panel.setOpaque(false);
 		jPanel.add(panel);

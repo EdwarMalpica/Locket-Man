@@ -8,7 +8,9 @@ import java.awt.Toolkit;
 import java.awt.Window;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JWindow;
 
 import backgroundGame.ConstanBackground;
 
@@ -32,7 +34,7 @@ public abstract class WindowGame extends Window {
 	}
 	
 	public void setPropertiesWindow() {
-		img = new ImageIcon(ConstanBackground.PATH_IMAGE_BACKGROUND_MENU);
+		img = new ImageIcon(getClass().getResource(ConstanBackground.PATH_IMAGE_BACKGROUND_MENU).getPath());
 	}
 
 	/**

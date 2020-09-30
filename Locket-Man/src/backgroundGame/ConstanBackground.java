@@ -25,12 +25,12 @@ public class ConstanBackground {
 	}
 	
 	//Paths
-		public static final String PATH_BACKGROUND_LEVEL1_IMAGE = "bin/resources/FondoNivel1V1.jpg";
-		public static final String PATH_BACKGROUND_LEVEL2_IMAGE = "bin/resources/FondoNivel2V1.png";
+		public static final String PATH_BACKGROUND_LEVEL1_IMAGE = "../resources/FondoNivel1V1.jpg";
+		public static final String PATH_BACKGROUND_LEVEL2_IMAGE = "../resources/FondoNivel2V1.png";
 		public static final String PATH_BUTTON_FONT = "../resources/Summer.ttf";
 		public static final String PATH_FONT_TIMER = "../resources/FontLabel.ttf"; 
-		public static final String PATH_IMAGE_BACKGROUND_MENU = "src/resources/FondoMenu1.jpg";
-		public static final String PATH_IMAGE_BACKGROUND_BUTTONS = "src/resources/FondoBotonesLadrillo.jpg";
+		public static final String PATH_IMAGE_BACKGROUND_MENU = "../resources/FondoMenu1.jpg";
+		public static final String PATH_IMAGE_BACKGROUND_BUTTONS = "../resources/FondoBotonesLadrillo.jpg";
 		//-----------------------------------------------------------------------------------------------
 	//Fonts	
 		public static final Font TIMER_FONT = new FontGame().loadFont(PATH_FONT_TIMER, 60);

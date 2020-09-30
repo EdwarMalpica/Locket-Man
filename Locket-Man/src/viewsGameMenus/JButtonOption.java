@@ -47,7 +47,7 @@ public class JButtonOption extends JButton{
 	private void init() {
 		controllerJButtonOptions = ControllerJButtonOptions.getControllerJButtonOptions();
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));		
-		img = new ImageIcon(ConstanBackground.PATH_IMAGE_BACKGROUND_BUTTONS);
+		img = new ImageIcon(getClass().getResource(ConstanBackground.PATH_IMAGE_BACKGROUND_BUTTONS).getPath());
 		this.setIcon(img);		
 		this.add(jLabelTextButton);
 		this.setBorder(BorderFactory.createLineBorder(Color.white,3,true));

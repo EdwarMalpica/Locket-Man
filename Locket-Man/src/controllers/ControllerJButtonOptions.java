@@ -120,7 +120,8 @@ public class ControllerJButtonOptions implements MouseListener{
 	private void exitFuction(JButtonOption jButtonOption) {
 		JPanelMenu a = (JPanelMenu)jButtonOption.getContainer();
 		WindowMenu b = (WindowMenu)a.getContainer();
-		b.dispose();		
+		b.dispose();
+		System.exit(0);
 	}
 	
 	/**
@@ -131,10 +132,10 @@ public class ControllerJButtonOptions implements MouseListener{
 		JFrameBackGround jFrameBackGroundLevel;
 		switch (jButtonOption.getName()) {
 		case "btnLevel1":
-			jFrameBackGroundLevel = new JFrameBackGround(ConstanBackground.PATH_BACKGROUND_LEVEL1_IMAGE);
+			jFrameBackGroundLevel = new JFrameBackGround(getClass().getResource(ConstanBackground.PATH_BACKGROUND_LEVEL1_IMAGE).getPath());
 			break;
 		case "btnLevel2":
-			jFrameBackGroundLevel = new JFrameBackGround(ConstanBackground.PATH_BACKGROUND_LEVEL2_IMAGE);
+			jFrameBackGroundLevel = new JFrameBackGround(getClass().getResource(ConstanBackground.PATH_BACKGROUND_LEVEL2_IMAGE).getPath());
 			jFrameBackGroundLevel .getjPanelBackground().getjLabelTimer().setForeground(Color.white);
 			break;
 		case "btnReturn":
