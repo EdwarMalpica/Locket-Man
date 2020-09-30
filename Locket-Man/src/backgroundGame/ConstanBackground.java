@@ -9,6 +9,7 @@ import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+import controllers.ControllerJButtonOptions;
 import utilities.FontGame;
 import utilities.PropertiesManager;
 import viewsGameMenus.WindowMenu;
@@ -18,11 +19,8 @@ import viewsGameMessages.WindowMessageGame;
 public class ConstanBackground {
 	
 	
-	private static PropertiesManager propertiesManager = PropertiesManager.getPropertiesManager(); 
+	private static ConstanBackground myConstanBackground;
 	
-	public void updateLanguage() {
-		propertiesManager = PropertiesManager.getPropertiesManager();
-	}
 	
 	//Paths
 		public static final String PATH_BACKGROUND_LEVEL1_IMAGE = "../resources/FondoNivel1V1.jpg";
@@ -45,27 +43,27 @@ public class ConstanBackground {
 		public static final String START_VALUE_TIMER = "00:00";
 		public static final int[] BOUNDS_TIMER = {969,53,273,80};
 	//Hacerle internacionalizacion
-		public  final static String[] TEXT_BUTTONS_MAIN_MENU = {propertiesManager.getBtnMainMenuMessagee(),propertiesManager.getBtnRegistryMessage(),
-				propertiesManager.getBtnQuickPlayMessage(),propertiesManager.getBtnOptionsMessage(),propertiesManager.getBtnExitMessage()};
+//		public  final static String[] TEXT_BUTTONS_MAIN_MENU = {propertiesManager.getBtnMainMenuMessagee(),propertiesManager.getBtnRegistryMessage(),
+//				propertiesManager.getBtnQuickPlayMessage(),propertiesManager.getBtnOptionsMessage(),propertiesManager.getBtnExitMessage()};
 		public static final String[] NAMES_BUTTONS_MAIN_MENU = {"txtMainMenu","btnRegistry","btnQuickPlay","btnOptions","btnExit"};
-	//Hacerle internacionalizacion	
-		public static  String[] TEXT_BUTTONS_QUICKPLAY_MENU = {propertiesManager.getBtnQuickPlayMessage(),propertiesManager.getBtnLevel1Message(),propertiesManager.getBtnLevel2Message(),propertiesManager.getBtnReturnMessage()};
+//	//Hacerle internacionalizacion	
+//		public static  String[] TEXT_BUTTONS_QUICKPLAY_MENU = {propertiesManager.getBtnQuickPlayMessage(),propertiesManager.getBtnLevel1Message(),propertiesManager.getBtnLevel2Message(),propertiesManager.getBtnReturnMessage()};
 		public static final String[] NAME_BUTTONS_QUICKPLAY_MENU = {"txtQuickPlay","btnLevel1","btnLevel2","btnReturn"};
-	//Hacerle internacionalizacion	
-		public final static String[] TEXT_BUTTONS_OPTIONS_MENU = {propertiesManager.getBtnOptionsMessage(),propertiesManager.getBtnVolumeMessagee(),propertiesManager.getBtnLanguageMessage(),propertiesManager.getBtnHelpMessage(),
-		propertiesManager.getBtnReturnMessage()};
+//	//Hacerle internacionalizacion	
+//		public final static String[] TEXT_BUTTONS_OPTIONS_MENU = {propertiesManager.getBtnOptionsMessage(),propertiesManager.getBtnVolumeMessagee(),propertiesManager.getBtnLanguageMessage(),propertiesManager.getBtnHelpMessage(),
+//		propertiesManager.getBtnReturnMessage()};
 		public static final String[] NAME_BUTTONS_OPTIONS_MENU =  {"txtOpciones","btnVolume","btnLanguage","btnHelp","btnReturn"};
-	//Hacerle internacionalizacion	
-		public static String[] TEXT_BUTTONS_LANGUAGE_MENU = {propertiesManager.getBtnLanguageMessage(),propertiesManager.getBtnSpanishMessage(),propertiesManager.getBtnEnglishMessage(),propertiesManager.getBtnReturnMessage()};
+//	//Hacerle internacionalizacion	
+//		public static String[] TEXT_BUTTONS_LANGUAGE_MENU = {propertiesManager.getBtnLanguageMessage(),propertiesManager.getBtnSpanishMessage(),propertiesManager.getBtnEnglishMessage(),propertiesManager.getBtnReturnMessage()};
 		public static final String[] NAME_BUTTONS_LANGUAGE_MENU = {"txtLenguage","btnSpanish","btnEnglish","btnReturn"};
-	//Hacerle internacionalizacion	
-	//Windows
-		public static final WindowMenu WINDOW_MENU_QUICKPLAY= new WindowMenu(ConstanBackground.TEXT_BUTTONS_QUICKPLAY_MENU,ConstanBackground.NAME_BUTTONS_QUICKPLAY_MENU);
-		public static final WindowMenu WINDOW_MENU_OPTIONS = new WindowMenu(ConstanBackground.TEXT_BUTTONS_OPTIONS_MENU,ConstanBackground.NAME_BUTTONS_OPTIONS_MENU);
-		public static final WindowMenu WINDOW_MAIN_MENU = new WindowMenu(ConstanBackground.TEXT_BUTTONS_MAIN_MENU,ConstanBackground.NAMES_BUTTONS_MAIN_MENU);
-		public static final WindowMenu WINDOW_LANGUAGE_MENU = new WindowMenu(ConstanBackground.TEXT_BUTTONS_LANGUAGE_MENU,ConstanBackground.NAME_BUTTONS_LANGUAGE_MENU);
-		public static final WindowMessageGame WINDOW_HELP_MENU =  new WindowMessageGame(propertiesManager.getBtnHelpMessage(),propertiesManager.getTxtHelpMessage());
-		public static final WindowRegistry WINDOW_REGISTRY = new WindowRegistry();
+//	//Hacerle internacionalizacion	
+//	//Windows
+//		public static final WindowMenu WINDOW_MENU_QUICKPLAY= new WindowMenu(ConstanBackground.TEXT_BUTTONS_QUICKPLAY_MENU,ConstanBackground.NAME_BUTTONS_QUICKPLAY_MENU);
+//		public static final WindowMenu WINDOW_MENU_OPTIONS = new WindowMenu(ConstanBackground.TEXT_BUTTONS_OPTIONS_MENU,ConstanBackground.NAME_BUTTONS_OPTIONS_MENU);
+//		public static final WindowMenu WINDOW_MAIN_MENU = new WindowMenu(ConstanBackground.TEXT_BUTTONS_MAIN_MENU,ConstanBackground.NAMES_BUTTONS_MAIN_MENU);
+//		public static final WindowMenu WINDOW_LANGUAGE_MENU = new WindowMenu(ConstanBackground.TEXT_BUTTONS_LANGUAGE_MENU,ConstanBackground.NAME_BUTTONS_LANGUAGE_MENU);
+//		public static final WindowMessageGame WINDOW_HELP_MENU =  new WindowMessageGame(propertiesManager.getBtnHelpMessage(),propertiesManager.getTxtHelpMessage());
+//		public static final WindowRegistry WINDOW_REGISTRY = new WindowRegistry();
 
 		
 

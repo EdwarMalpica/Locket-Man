@@ -15,8 +15,7 @@ public class JLabelTextGame extends JLabel {
 		init();
 	}
 	private void init() {
-		ConstanBackground constanBackground = new ConstanBackground();
-		this.setFont(constanBackground.SUMMER_FONT_1);
+		this.setFont(ConstanBackground.SUMMER_FONT_1);
 		this.setForeground(Color.white);
 	}
 	public void setSizeComponent(Component component) {

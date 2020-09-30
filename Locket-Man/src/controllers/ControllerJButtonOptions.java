@@ -15,6 +15,7 @@ import javax.swing.JWindow;
 
 import backgroundGame.ConstanBackground;
 import backgroundGame.JFrameBackGround;
+import utilities.LoaderWindow;
 import utilities.PropertiesManager;
 import viewsGameMenus.JButtonOption;
 import viewsGameMenus.JPanelMenu;
@@ -24,9 +25,11 @@ public class ControllerJButtonOptions implements MouseListener{
 	
 	private static ControllerJButtonOptions myControllerJButtonOptions = null;
 	private Window windowMenuCurrent;
+	private LoaderWindow loaderWindow;
 	
 	public ControllerJButtonOptions() {
 		super(); 
+		loaderWindow = new LoaderWindow();
 	}
 	
 	
@@ -149,7 +152,7 @@ public class ControllerJButtonOptions implements MouseListener{
 	 * Despliega el menu principal
 	 */
 	private void showMainMenu() {
-		windowMenuCurrent = ConstanBackground.WINDOW_MAIN_MENU;
+		windowMenuCurrent = loaderWindow.getWindowMainMenu();
 		windowMenuCurrent.setVisible(true);
 	}
 	
@@ -157,14 +160,14 @@ public class ControllerJButtonOptions implements MouseListener{
 	 * Muestra la ventana del menu de juego rapido 
 	 */
 	private void showQuickPLayMenu() {
-		windowMenuCurrent = ConstanBackground.WINDOW_MENU_QUICKPLAY;
+		windowMenuCurrent = loaderWindow.getWindowQuickPlay();
 		windowMenuCurrent.setVisible(true);
 	}
 	/**
 	 * Muestra el menu de opciones
 	 */
 	private void showOptionMenu() {
-		windowMenuCurrent =	ConstanBackground.WINDOW_MENU_OPTIONS;
+		windowMenuCurrent =	loaderWindow.getWindowOptions();
 		windowMenuCurrent.setVisible(true);
 	}
 	/**
@@ -191,19 +194,19 @@ public class ControllerJButtonOptions implements MouseListener{
 	 * Muestra la ventana del lenguage de menu
 	 */
 	private void showWindowLanguageMenu() {
-		windowMenuCurrent =	ConstanBackground.WINDOW_LANGUAGE_MENU;
+		windowMenuCurrent =	loaderWindow.getWindowLanguage();
 		windowMenuCurrent.setVisible(true);
 	}
 	/**
 	 * Muestra el menu de ayuda
 	 */
 	private void showHelpWindow() {
-		windowMenuCurrent = ConstanBackground.WINDOW_HELP_MENU;
+		windowMenuCurrent = loaderWindow.getWindowHelp();
 		windowMenuCurrent.setVisible(true);
 	}
 	
 	private void showRegistryWindow() {
-		windowMenuCurrent = ConstanBackground.WINDOW_REGISTRY;
+		windowMenuCurrent = loaderWindow.getWindow();
 		windowMenuCurrent.setVisible(true);
 	}
 	
@@ -212,16 +215,16 @@ public class ControllerJButtonOptions implements MouseListener{
 	 */
 	private void setFuctionChangeIdiom(JButtonOption jButtonOption) {
 		PropertiesManager propertiesManager = PropertiesManager.getPropertiesManager();
-		ConstanBackground constanBackground = new ConstanBackground();
 		switch (jButtonOption.getName()) {
 		case "btnSpanish":
-			propertiesManager.setSpanishLanguage();
-			
-			constanBackground.updateLanguage();
+			propertiesManager.setSpanishLanguage();			
+			loaderWindow.updateLanguageSpanish();
+			showMainMenu();
 			break;
 		case "btnEnglish":
 			propertiesManager.setEnglishLanguage();
-			constanBackground.updateLanguage();
+			loaderWindow.updateLanguageEnglish();
+			showMainMenu();
 			break;
 		}
 	}

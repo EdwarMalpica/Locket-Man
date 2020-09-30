@@ -26,7 +26,6 @@ public class PropertiesManager {
 	}
 	
 	private void init() {
-		System.out.println(getClass().getResource("").getPath());
 		try {
 			String languageSystem = System.getProperty("user.language");
 			if (languageSystem.equals("es")) {
@@ -117,6 +116,14 @@ public class PropertiesManager {
 	public String getBtnEnglishMessage() {
 		return resourceBundle.getString("btnEnglishMessage");
 	}
+	/**
+	 * @return the resourceBundle
+	 */
+	public ResourceBundle getResourceBundle() {
+		return resourceBundle;
+	}
+	
+	
 	
 	
 	
