@@ -1,8 +1,8 @@
 package utilities;
 
 import backgroundGame.ConstanBackground;
+import viewsGameMenus.JFrameRegistry;
 import viewsGameMenus.WindowMenu;
-import viewsGameMenus.WindowRegistry;
 import viewsGameMessages.WindowMessageGame;
 
 public class LoaderWindow {
@@ -72,8 +72,8 @@ public class LoaderWindow {
 		return new WindowMessageGame(propertiesManager.getBtnHelpMessage(), propertiesManager.getTxtHelpMessage());
 	}
 
-	public WindowRegistry getWindow() {
-		return new WindowRegistry();
+	public JFrameRegistry getWindow() {
+		return new JFrameRegistry();
 	}
 	
 

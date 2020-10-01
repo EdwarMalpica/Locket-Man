@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import backgroundGame.ConstanBackground;
+import utilities.PropertiesManager;
 import viewsGameMenus.JButtonOption;
 import viewsGameMenus.JLabelTextGame;
 import viewsGameMenus.WindowGame;
@@ -55,7 +56,7 @@ public class WindowMessageGame extends WindowGame{
 	}
 	
 	private void setButton() {
-		JButtonOption jButtonOption = new JButtonOption(jPanel,"Volver","btnReturn");
+		JButtonOption jButtonOption = new JButtonOption(jPanel,PropertiesManager.getPropertiesManager().getBtnReturnMessage(),"btnReturn");
 		jPanel.add(jButtonOption);
 	}
 	@Override

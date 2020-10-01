@@ -1,17 +1,22 @@
 package tests;
 
+import java.awt.Window;
+
 import backgroundGame.ConstanBackground;
+import utilities.LoaderWindow;
+import viewsGameMenus.JFrameRegistry;
+import viewsGameMenus.JPanelPrueba;
 import viewsGameMenus.WindowGame;
 import viewsGameMenus.WindowMenu;
-import viewsGameMenus.WindowRegistry;
 import viewsGameMessages.WindowMessageGame;
 
 public class TestWindowMenu {
 
 	public static void main(String[] args) {
-		//WindowGame a = new WindowMenu(ConstanBackground.TEXT_BUTTONS_MAIN_MENU,ConstanBackground.NAMES_BUTTONS_MAIN_MENU);
+		//WindowGame a = LoaderWindow.getConstanBackground().getWindowMainMenu();
 		//WindowGame a = new WindowMessageGame("Help",ConstanBackground.TEXT_HELP_OPTION);
-		WindowGame a = new WindowRegistry();
+		JFrameRegistry a = new JFrameRegistry();
+		//JPanelPrueba a  = new JPanelPrueba();
 		a.setVisible(true);
 		}
 

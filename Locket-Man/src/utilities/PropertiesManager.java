@@ -116,6 +116,9 @@ public class PropertiesManager {
 	public String getBtnEnglishMessage() {
 		return resourceBundle.getString("btnEnglishMessage");
 	}
+	public String getBtnAceptMessage() {
+		return resourceBundle.getString("btnAccept");
+	}
 	/**
 	 * @return the resourceBundle
 	 */

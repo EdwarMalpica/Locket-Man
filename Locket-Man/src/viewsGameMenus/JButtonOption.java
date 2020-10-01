@@ -32,7 +32,7 @@ public class JButtonOption extends JButton{
 	 * @param dimension Tamaño del contenedor
 	 * @param buttonText Texto del boton
 	 */
-	private JLabel jLabelTextButton;
+	private JLabelTextGame jLabelTextButton;
 	public JButtonOption(Container container, String buttonText, String buttonName) {
 		super();
 		jLabelTextButton = new JLabelTextGame();
@@ -52,7 +52,9 @@ public class JButtonOption extends JButton{
 		this.add(jLabelTextButton);
 		this.setBorder(BorderFactory.createLineBorder(Color.white,3,true));
 		this.addMouseListener(controllerJButtonOptions);
+		this.setLocation(0,100);
 	}
+	
 	/**
 	 * Para el efecto hover en los botones determinamos que tan opaco quederemos
 	 * @param opacity
@@ -64,9 +66,7 @@ public class JButtonOption extends JButton{
 	@Override
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		// Pasamos nuestra variable "opacity" al metodo
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
-		// Usamos el metodo paintComponent del padre con "super"
 		super.paintComponent(g2);
 	}
 
@@ -82,6 +82,19 @@ public class JButtonOption extends JButton{
 	public void setSizeNormalMenu() {
 		this.setPreferredSize(new Dimension(container.getWidth()/2,container.getHeight()/3));
 	}
+	
+	public void efectHover(float index, float range, float cont, int sleep, boolean event) {
+		new Thread(() -> {
+			for (float i = index; (event) ? i <= range : i >= range; i = (event) ? i + cont : i - cont) {
+				this.setOpacity(i);
+				try {
+					Thread.sleep(sleep);
+				} catch (InterruptedException e) {
+				}
+
+			}
+		}).start();
+	}
 
 	/**
 	 * @return the container
@@ -91,6 +104,15 @@ public class JButtonOption extends JButton{
 	}
 
 
+	/**
+	 * @return the jLabelTextButton
+	 */
+	public JLabelTextGame getjLabelTextButton() {
+		return jLabelTextButton;
+	}
+
+
+	
 	
 	
 	

@@ -1,18 +1,9 @@
 package controllers;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JWindow;
-
 import backgroundGame.ConstanBackground;
 import backgroundGame.JFrameBackGround;
 import utilities.LoaderWindow;
@@ -59,41 +50,30 @@ public class ControllerJButtonOptions implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		efectHover(1f, 0.2f, 0.6f, 10, false,(JButtonOption)e.getComponent());
-			
+		((JButtonOption) e.getComponent()).efectHover(1f, 0.2f, 0.6f, 10, false);
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-			efectHover(0.5f, 1f, 0.03f, 10, true,(JButtonOption)e.getComponent());
-		
+		((JButtonOption) e.getComponent()).efectHover(0.5f, 1f, 0.03f, 10, true);
+			setAnimationSizeFontButtons((JButtonOption) e.getComponent());
 		
 	}
-	
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		efectHover(1f, 0.5f, 0.03f, 10, false,(JButtonOption)e.getComponent());	
+		((JButtonOption) e.getComponent()).efectHover(1f, 0.5f, 0.03f, 10, false);	
+		setOffAnimationSizeFontButtons((JButtonOption) e.getComponent());
 	}
 	
-	private void efectHover(float index, float range, float cont, int sleep, boolean event,JButtonOption jButtonOption) {
-		new Thread(() -> {
-			for (float i = index; (event) ? i <= range : i >= range; i = (event) ? i + cont : i - cont) {
-				jButtonOption.setOpacity(i);
-				try {
-					Thread.sleep(sleep);
-				} catch (InterruptedException e) {
-				}
-
-			}
-		}).start();
-	}
+	
 	
 	
 	
@@ -121,9 +101,6 @@ public class ControllerJButtonOptions implements MouseListener{
 	 * @param jButtonOption
 	 */
 	private void exitFuction(JButtonOption jButtonOption) {
-		JPanelMenu a = (JPanelMenu)jButtonOption.getContainer();
-		WindowMenu b = (WindowMenu)a.getContainer();
-		b.dispose();
 		System.exit(0);
 	}
 	
@@ -148,6 +125,18 @@ public class ControllerJButtonOptions implements MouseListener{
 			break;
 		}
 	}
+	
+	/**
+	 * Agranda los textos de los botones 
+	 * @param jButtonOption
+	 */
+	private void setAnimationSizeFontButtons(JButtonOption jButtonOption) {
+		jButtonOption.getjLabelTextButton().setAnimationByFontSize();
+	}
+	private void setOffAnimationSizeFontButtons(JButtonOption jButtonOption) {
+		jButtonOption.getjLabelTextButton().setNormalFont();
+	}
+	
 	/**
 	 * Despliega el menu principal
 	 */
@@ -206,6 +195,7 @@ public class ControllerJButtonOptions implements MouseListener{
 	}
 	
 	private void showRegistryWindow() {
+		windowMenuCurrent.dispose();
 		windowMenuCurrent = loaderWindow.getWindow();
 		windowMenuCurrent.setVisible(true);
 	}
