@@ -22,6 +22,7 @@ public class PanelOptions extends JPanel{
 
 	public PanelOptions(Dimension size, Point locale) {
 		super();
+		this.setLayout(null);
 		this.size = size;
 		this.locale = locale;
 		this.setBackground(Color.BLACK);

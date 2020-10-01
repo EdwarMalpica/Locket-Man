@@ -13,22 +13,24 @@ import com.uptc.LockedMan.view.splash.AnimatedLabels;
 public class EventConfig implements ActionListener{
 	
 	private Component panel;
-	private JFrame frame;
+	private PanelContainer frame;
 	private String move;
 	private String direction;
+	private boolean open;
 	
 	private Sounds sound;
 	
 	private int init;
 	private int end;
 	
-	public EventConfig(JFrame frame, Component panel, String move, String direcction, int init, int end) {
+	public EventConfig(Component panel, String move, String direcction, int init, int end, boolean open) {
 		this.frame = frame;
 		this.panel = panel;
 		this.move = move;
 		this.direction = direcction;
 		this.init = init;
 		this.end = end;
+		this.open = open;
 	}
 
 	@Override
