@@ -25,7 +25,7 @@ public class Constants {
 	public static final String PATH_IMAGE_PERSON_LEFT = "/resources/PersonRight.png";
 	public static final String PATH_IMAGE_PERSON_STAY = "/resources/PersonStay.png";
 	public static final String PATH_IMAGE_PERSON_JUMP_RIGHT = "/resources/PersonJumpRight.png";
-
+	public static final String PATH_SOURCES_LEVEL_BUILD = "/resources/data/LevelsData.json";
 	//Colors
 	
 	public static final Color COLOR_TEST = Color.white;

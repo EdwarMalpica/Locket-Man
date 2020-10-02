@@ -32,6 +32,7 @@ public class ThreadAnimationPerson implements Runnable{
 				e.printStackTrace();
 			}
 			framePrincipal.setIncrement(manager.getIncrementAnimation());
+			
 		}
 		
 	}

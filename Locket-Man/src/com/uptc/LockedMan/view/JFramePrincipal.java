@@ -52,6 +52,7 @@ public class JFramePrincipal extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
+//		this.setOpacity(1);
 //		Toolkit toolkit = Toolkit.getDefaultToolkit();
 //		hilo = new Thread(this);
 //		img = toolkit.getImage(getClass().getResource("/resources/person1.png"));
@@ -78,11 +79,17 @@ public class JFramePrincipal extends JFrame {
 		jPanelPerson.movePersonStay();
 	}
 	
-	public void movePersonRight() {
-		jPanelPerson.movePersonRight();
+	public void movePersonRight(int y) {
+		jPanelPerson.movePersonRight(y);
 	}
-	public void movePersonLeft() {
-		jPanelPerson.movePersonLeft();
+	public void movePersonLeft(int y) {
+		jPanelPerson.movePersonLeft(y);
+	}
+	public void movePersonRightNoCollision() {
+		jPanelPerson.movePersonRightNoCollision();
+	}
+	public void movePersonLeftNoCollison() {
+		jPanelPerson.movePersonLeftNoCollision();
 	}
 	public void movePersonRightJump() {
 		jPanelPerson.movePersonRightJump();
@@ -91,7 +98,7 @@ public class JFramePrincipal extends JFrame {
 		jPanelPerson.movePersonLeftJump();
 	}
 	public void movePersonJumpRight() {
-		jPanelPerson.movePersonJumpRight();
+		jPanelPerson.movePersonJump();
 	}
 	public void movePersonDown() {
 		jPanelPerson.movePersonDown();
@@ -99,9 +106,32 @@ public class JFramePrincipal extends JFrame {
 	public boolean colisionWithPerson() {
 		return jPanelPerson.colisionWithPerson();
 	}
+	public boolean colisionWithBox() {
+		return jPanelPerson.getColisionWhitBox();
+	}
 	
 	public Rectangle getRectangleEnvironment() {
 		return jPanelPerson.getCurrentRectangle();
+	}
+	
+	public int getWidthPerson() {
+		 return jPanelPerson.getWidthPerson();
+	 }
+	public void takeBox() {
+		jPanelPerson.takeBox();
+	}
+	public void dropBox() {
+		jPanelPerson.dropBox();
+	}
+	
+	public void setlevelOne() {
+		
+	}
+	public void setlevelTwo() {
+		
+	}
+	public void setlevelTree() {
+		
 	}
 	
 //	@Override 

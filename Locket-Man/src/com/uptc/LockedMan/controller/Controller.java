@@ -4,11 +4,11 @@
  */
 package com.uptc.LockedMan.controller;
 
-import java.awt.Rectangle;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import com.uptc.LockedMan.constants.Constants;
+
 import com.uptc.LockedMan.model.ModelManager;
 import com.uptc.LockedMan.view.JFramePrincipal;
 
@@ -22,6 +22,11 @@ public class Controller implements KeyListener {
 	private JFramePrincipal framePrincipal;
 	private static Controller controller;
 	private Thread threadJump;
+	private Thread validateColision;
+	private Thread movePersonDown;
+	private ThreadValidateColision threadValidateColision;
+	private Thread threadTakeBox;
+	private ThreadTakeBox threadTakeBoxRun;
 	
 	/**
 	 * @param manager el manager a establecer
@@ -59,6 +64,8 @@ public class Controller implements KeyListener {
 		Thread threadAnimation = new Thread(new ThreadAnimationPerson(framePrincipal,manager));
 		threadAnimation.start();
 		jumpAnimation();
+		validateColision();
+		takeBox();
 	}
 	private void jumpAnimation() {
 		
@@ -66,6 +73,31 @@ public class Controller implements KeyListener {
 		threadJump.start();
 		
 	}
+	
+	private void takeBox() {
+		threadTakeBoxRun = new ThreadTakeBox(framePrincipal, manager);
+		threadTakeBox = new Thread(threadTakeBoxRun);
+		threadTakeBox.start();
+	}
+	
+	private void validateColision() {
+		threadValidateColision = new ThreadValidateColision(framePrincipal, manager);
+		validateColision = new Thread(threadValidateColision);
+		validateColision.start();
+	}
+	
+	private void changeStateTakebox() {
+		if(threadTakeBoxRun.isStatus()) {
+			threadTakeBoxRun.suspendThread();
+			
+			dropBox();
+		}else {
+			threadTakeBoxRun.playThread();
+		}
+	}
+	
+	
+	
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -77,6 +109,7 @@ public class Controller implements KeyListener {
 				if(getColisionWhitPerson()) {
 					movePersonLeft();	
 				}else {
+					movePersonLeftNoCollision();
 					movePersonDown();
 				}
 				
@@ -91,14 +124,24 @@ public class Controller implements KeyListener {
 				if(getColisionWhitPerson()) {
 					movePersonRight();	
 				}else {
+					movePersonRightNoCollision();	
 					movePersonDown();
 				}
 				
 			}
 		}
 		if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W' || e.getExtendedKeyCode() == KeyEvent.VK_UP) {
-				jumpAnimation();
-				
+				if(!threadJump.isAlive()) {
+					threadValidateColision.pauseThread();	
+					jumpAnimation();
+					threadValidateColision.playThread();
+				}
+		
+		}
+		if(e.getKeyChar() == 'e'||e.getKeyChar() == 'E') {
+			if( getColisionWhitBox()  ) {
+				changeStateTakebox();
+			}
 		}
 		
 	}
@@ -121,21 +164,30 @@ public class Controller implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Esbozo de método generado automáticamente
+		
 		
 	}
 	
 	public void movePersonStay() {
 		framePrincipal.movePersonStay();
+		
 	}
 	
 	public void movePersonRight() {
-//		int y = framePrincipal.getRectangleEnvironment().y;
-		framePrincipal.movePersonRight();
+		int y = framePrincipal.getRectangleEnvironment().y;
+		framePrincipal.movePersonRight(y);	
 	}
 	public void movePersonLeft() {
-//		int y = framePrincipal.getRectangleEnvironment().y;
-		framePrincipal.movePersonLeft();
+		int y = framePrincipal.getRectangleEnvironment().y;
+		framePrincipal.movePersonLeft(y);
+	}
+	public void movePersonRightNoCollision() {
+	//	int y = framePrincipal.getRectangleEnvironment().y;
+		framePrincipal.movePersonRightNoCollision();
+	}
+	public void movePersonLeftNoCollision() {
+	//	int y = framePrincipal.getRectangleEnvironment().y;
+		framePrincipal.movePersonLeftNoCollison();
 	}
 	public void movePersonRightJump() {
 		framePrincipal.movePersonRightJump();
@@ -144,11 +196,29 @@ public class Controller implements KeyListener {
 		framePrincipal.movePersonLeftJump();
 	}
 	public void movePersonDown() {
-		framePrincipal.movePersonDown();
+		movePersonDown = new Thread(new ThreadMovePersonDown(framePrincipal, manager));
+		movePersonDown.start();
 	}
 	
 	public boolean getColisionWhitPerson() {
 		return framePrincipal.colisionWithPerson();
 	}
+	public boolean getColisionWhitBox() {
+		
+		return framePrincipal.colisionWithBox();
+	}
+	public void dropBox() {
+		framePrincipal.dropBox();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

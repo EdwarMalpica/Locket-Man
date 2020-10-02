@@ -4,15 +4,18 @@
  */
 package com.uptc.LockedMan.view;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
 import com.uptc.LockedMan.constants.Constants;
 import com.uptc.LockedMan.controller.Controller;
+import com.uptc.LockedMan.model.Level;
 
 /**
  * @author eduar
@@ -27,6 +30,9 @@ public class JPanelPerson extends JPanel{
 	private JLabelPerson jLabelPerson;
 	private Rectangle[] levelFormat;
 	private Rectangle currentRectangle;
+	private Rectangle box;
+	
+	private Rectangle door;
 	
 	public JPanelPerson(String pathImage) {
 		super();
@@ -39,10 +45,13 @@ public class JPanelPerson extends JPanel{
 	private void init(String pathImage) {
 		this.addKeyListener(Controller.getInstanceOf());
 		this.setFocusable(true);
-		this.setBackground(Constants.COLOR_TEST);
+		this.setBackground(Color.green);
+		//this.setOpaque(true);
+		
 		jLabelPerson = new JLabelPerson(pathImage);
 		this.add(jLabelPerson);
-		jLabelPerson.setLocation(jLabelPerson.getX(),jLabelPerson.getY()+500 );
+		//this.jLabelPerson.setLocation(jLabelPerson.getX()+500,jLabelPerson.getY()+500);
+		
 		
 		
 		levelFormat = new Rectangle[] {
@@ -53,6 +62,7 @@ public class JPanelPerson extends JPanel{
 			new Rectangle(1043,493,280,205)
 			
 		};
+		box = new Rectangle(580,433,50,50);
 		//addRectangle();
 		
 		//jLabelPerson.setBounds(0,0, 110, 110);
@@ -66,9 +76,12 @@ public class JPanelPerson extends JPanel{
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
+		
 		for (Rectangle rectangle : levelFormat) {
 			g.fillRect(rectangle.x,rectangle.y, rectangle.width, rectangle.height);
 		}
+		g.setColor(Color.YELLOW);
+		g.fillRect(box.x,box.y, box.width,box.height);
 	}
 	
 	public void setIncrement(int increment) {
@@ -84,23 +97,23 @@ public class JPanelPerson extends JPanel{
 		
 	}
 	
-	public void movePersonJumpRight() {
-		jLabelPerson.animationJumpRight();
-		for(int i = 0; i<12;i++) {
+	public void movePersonJump() {
+		jLabelPerson.animationJump();
+		for(int i = 0; i<24;i++) {
 			int y = jLabelPerson.getY()-5;
 			jLabelPerson.setLocation(jLabelPerson.getX(), y);
 			try {
-				Thread.sleep(25);
+				Thread.sleep(13);
 			} catch (InterruptedException e) {
 				
 				e.printStackTrace();
 			}
 		}
-		for(int i = 12; i>0;i--) {
+		for(int i = 24; i>0;i--) {
 			int y = jLabelPerson.getY()+5;
 			jLabelPerson.setLocation(jLabelPerson.getX(), y);
 			try {
-				Thread.sleep(25);
+				Thread.sleep(13);
 			} catch (InterruptedException e) {
 				
 				e.printStackTrace();
@@ -109,7 +122,26 @@ public class JPanelPerson extends JPanel{
 		movePersonStay();
 	}
 	
-	public void movePersonRight() {
+	public void drawRectLevel(Rectangle rec) {
+		this.getGraphics().fillRect(rec.x,rec.y, rec.width, rec.height);
+	}
+	
+	public void drawLevel(Level level) {
+		ArrayList<Rectangle> floor= level.getFloor();
+		ArrayList<Rectangle> obstacle= level.getObstacles();
+		for (Rectangle rectangle : obstacle) {
+			
+		}
+		
+		
+	}
+	
+	public void movePersonRight(int y) {
+		jLabelPerson.animationRight();
+		int x = jLabelPerson.getX() +10;
+		jLabelPerson.setLocation(x , y-jLabelPerson.getHeight());
+	}
+	public void movePersonRightNoCollision() {
 		jLabelPerson.animationRight();
 		int x = jLabelPerson.getX() +10;
 		jLabelPerson.setLocation(x , jLabelPerson.getY());
@@ -117,10 +149,17 @@ public class JPanelPerson extends JPanel{
 	public void movePersonRightJump() {
 		
 		int x = jLabelPerson.getX() +10;
-		jLabelPerson.setLocation(x , jLabelPerson.getY()+1);
+		jLabelPerson.setLocation(x , jLabelPerson.getY());
 	}
-	public void movePersonLeft() {
+	
+	
+	public void movePersonLeft(int y) {
 		
+		jLabelPerson.animationLeft();
+		int x = jLabelPerson.getX() -10;
+		jLabelPerson.setLocation(x , y-jLabelPerson.getHeight());
+	}
+	public void movePersonLeftNoCollision() {
 		jLabelPerson.animationLeft();
 		int x = jLabelPerson.getX() -10;
 		jLabelPerson.setLocation(x , jLabelPerson.getY());
@@ -129,12 +168,37 @@ public class JPanelPerson extends JPanel{
 		int x = jLabelPerson.getX() -10;
 		jLabelPerson.setLocation(x , jLabelPerson.getY()+1);
 	}
+	
+	
 	public void movePersonDown() {
-		int y = jLabelPerson.getY() +10;
+		
+		int y = jLabelPerson.getY() +2;
 		jLabelPerson.setLocation(jLabelPerson.getX(), y);
+		try {
+			Thread.sleep(2);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	
+	public void takeBox() {
+		box.setLocation(jLabelPerson.getX() +(box.width/2) ,jLabelPerson.getY()-(box.height/2) );
+		this.repaint();
+		try {
+			Thread.sleep(3);
+		} catch (InterruptedException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+	}
+	public void dropBox() {
+		box.setLocation(jLabelPerson.getX() + (jLabelPerson.getWidth()-box.width)/2, +jLabelPerson.getY()+jLabelPerson.getHeight()-box.height );
+		repaint();
 	}
 	
 	public boolean colisionWithPerson() {
+		
 		boolean colision = false;
 		for (Rectangle rectangle : levelFormat) {
 			if(getRectanglePerson().intersects(rectangle)) {
@@ -144,9 +208,37 @@ public class JPanelPerson extends JPanel{
 		}
 		return colision;
 	}
+	public boolean getColisionWhitBox() {
+		boolean colision = false;
+		if(box.intersects( jLabelPerson.getBounds())) {
+			colision = true;
+		}
+		return colision;
+	}
+//	public boolean colisionWithPersonLat() {
+//		int x  = jLabelPerson.getX();
+//		int y = jLabelPerson.getY();
+//		
+//		int marginLeft = -6;
+//		int marginRight = 18;
+//		int marginTop = -4;
+//		int marginBottom = 31;
+//		
+//		
+//		int borderLeft = (x + marginRight)/jLabelPerson.getWidthImg();
+//		int borderRight = (x+marginRight+marginLeft)/jLabelPerson.getWidthImg();
+//		int borderTop = (y + marginBottom)/jLabelPerson.getWidthImg();
+//		int borderBotton = (y + marginBottom+marginTop)/getWidthPerson();
+//		
+//		
+//		return false;
+//	}
 	public Rectangle getRectanglePerson() {
 		return jLabelPerson.getBounds();
 	}
+	 public int getWidthPerson() {
+		 return jLabelPerson.getWidth();
+	 }
 	
 //	public void getRectangleEnvironment() {
 //		for(int i =0 ;i< levelFormat.length;i++) {
