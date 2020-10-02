@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+
 public class PropertiesManager {
 
 	private ResourceBundle resourceBundle;
@@ -17,6 +18,7 @@ public class PropertiesManager {
 		init();		
 	}
 	
+
 	public static PropertiesManager getPropertiesManager () {
 		 if (myPropertiesManager ==null) {		 
 			 myPropertiesManager = new  PropertiesManager();
@@ -25,16 +27,17 @@ public class PropertiesManager {
 	}
 	
 	private void init() {
+
 		try {
 			String languageSystem = System.getProperty("user.language");
 			if (languageSystem.equals("es")) {
-				System.out.println(getClass().getResource("../").getPath());
 				FileInputStream fis = new FileInputStream(getClass().getResource(PATH_PROPERTIES_FILE_ES).getPath());
 				resourceBundle = new PropertyResourceBundle(fis);
 			} else if(languageSystem.equals("in")){
 				FileInputStream fis = new FileInputStream(getClass().getResource(PATH_PROPERTIES_FILE_EN).getPath());
 				resourceBundle = new PropertyResourceBundle(fis);
 			}else {
+
 				FileInputStream fis = new FileInputStream(getClass().getResource(PATH_PROPERTIES_FILE_EN).getPath());
 				resourceBundle = new PropertyResourceBundle(fis);
 			}
@@ -119,8 +122,16 @@ public class PropertiesManager {
 	public String getBtnEnglishMessage() {
 		return resourceBundle.getString("btnEnglishMessage");
 	}
-	
-	
+
+	public String getBtnAceptMessage() {
+		return resourceBundle.getString("btnAccept");
+	}
+	/**
+	 * @return the resourceBundle
+	 */
+	public ResourceBundle getResourceBundle() {
+		return resourceBundle;
+	}
 	
 //--------------------------------------------------------------------------------------------------------------
 // Ahora obtenemos los mensajes para el spash y el frame de inicio	
@@ -153,4 +164,5 @@ public class PropertiesManager {
 	public String getExitMessage() {
 		return resourceBundle.getString("exitButton");
 	}
+
 }

@@ -2,9 +2,7 @@ package viewsGameMenus;
 
 
 import java.awt.Container;
-
 import java.awt.FlowLayout;
-
 import javax.swing.JPanel;
 
 public class JPanelMenu extends JPanel{
@@ -24,16 +22,18 @@ public class JPanelMenu extends JPanel{
 
 	private void init() {			
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
-		this.setSize(container.getSize());
+		this.setSize(container.getWidth(), container.getHeight());
 		this.setOpaque(false);
 	}
 	
 	
 	public void setButton(String textButton,String buttonName) {
-		JButtonOption a = new JButtonOption(this, textButton, buttonName);
+
+		JButtonOption a = new JButtonOption(this, textButton,buttonName);
 		a.setSizeMainMenu();
 		this.add(a);	
 	}
+
 
 
 	/**

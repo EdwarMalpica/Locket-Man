@@ -1,11 +1,6 @@
 package viewsGameMenus;
-
 import java.awt.Dimension;
-
 import java.awt.GridLayout;
-
-
-
 public class WindowMenu extends WindowGame{
 	
 	/**
@@ -16,19 +11,22 @@ public class WindowMenu extends WindowGame{
 	private String[] buttonsTextList;
 	private String[] buttonsNameList;
 
-	public WindowMenu(String[] buttonsTextList, String[] buttonsNameList) {
+
+	public WindowMenu(String[] buttonsTextList,String[] buttonsNameList) {
 		super();
 		numberDivisions = buttonsTextList.length;
 		this.buttonsTextList = buttonsTextList;
 		this.buttonsNameList = buttonsNameList;
 		init();	
+
 	}
 	
 	
 	@Override
 	protected void init() {
 		super.init();
-		jPanel.setLayout(new GridLayout(numberDivisions,0));
+
+		jPanelBody.setLayout(new GridLayout(numberDivisions,0));
 		addPanels();
 	}
 	
@@ -56,9 +54,10 @@ public class WindowMenu extends WindowGame{
 			JPanelMenu jPanelPauseOption = new JPanelMenu(this);	
 			jPanelPauseOption.setButton(buttonsTextList[i],buttonsNameList[i]);
 			if (i == 0) {
-				jPanel.add(new JPanelHeaderMenu(buttonsTextList[i],this));
+
+				jPanelBody.add(new JPanelHeaderMenu(buttonsTextList[i],this));
 			}else {
-				jPanel.add(jPanelPauseOption);
+				jPanelBody.add(jPanelPauseOption);
 			}			
 		}
 	}
@@ -74,7 +73,9 @@ public class WindowMenu extends WindowGame{
 	public void verifyCorrectSize() {
 		if (numberDivisions > 7) {
 			int newHeight = this.getHeight()+((dimension.height/numberDivisions)*numberDivisions);
-			this.setSize(new Dimension(dimension.width/3, newHeight));
+
+			this.setSize(new Dimension(dimension.width/3,newHeight));
+
 		}else {
 			this.setSize(dimension.width/3,dimension.height/2);
 		}

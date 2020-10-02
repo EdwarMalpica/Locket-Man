@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+
 import backgroundGame.ConstanBackground;
 
 @SuppressWarnings("unused")
@@ -14,8 +15,11 @@ public class JPanelHeaderMenu extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 8015722192506452816L;
+
+	@SuppressWarnings("unused")
 	private JButton jButtonClose;
 	private JLabelTextGame jLabelHeaderText;
+	@SuppressWarnings("unused")
 	private Container container;
 	
 	public JPanelHeaderMenu(String headerText,Container container) {

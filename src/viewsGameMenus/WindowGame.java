@@ -2,13 +2,10 @@ package viewsGameMenus;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Window;
-
 import javax.swing.ImageIcon;
-
 import javax.swing.JPanel;
 
 
@@ -19,8 +16,9 @@ public abstract class WindowGame extends Window {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1871024807060062289L;
-	protected JPanel jPanel;
+
+	private static final long serialVersionUID = 846571355306691448L;
+	protected JPanel jPanelBody;
 	protected ImageIcon img;
 	protected Dimension dimension;
 	
@@ -29,8 +27,10 @@ public abstract class WindowGame extends Window {
 	}
 
 	protected void init() {
-		jPanel = new JPanel();
-		this.add(jPanel);
+
+		jPanelBody = new JPanel();
+		this.add(jPanelBody);
+
 		dimension = Toolkit.getDefaultToolkit().getScreenSize();
 		setPropertiesWindow();
 		verifyCorrectSize();
@@ -48,7 +48,7 @@ public abstract class WindowGame extends Window {
 	public void paint(Graphics graphics) {
 		Image imageBackGround = img.getImage();
 		graphics.drawImage(imageBackGround, 0, 0, this.getWidth(), this.getHeight(), this);
-		jPanel.setOpaque(false);
+		jPanelBody.setOpaque(false);
 		super.paint(graphics);
 	}
 	
@@ -58,7 +58,7 @@ public abstract class WindowGame extends Window {
 	 * @return the jPanel
 	 */
 	public JPanel getjPanel() {
-		return jPanel;
+		return jPanelBody;
 	}
 	
 

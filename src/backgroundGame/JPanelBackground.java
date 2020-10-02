@@ -11,10 +11,7 @@ package backgroundGame;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-
-
 import javax.swing.ImageIcon;
-
 import javax.swing.JPanel;
 
 /**
@@ -28,6 +25,8 @@ public class JPanelBackground extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1687133441495429963L;
+
+	@SuppressWarnings("unused")
 	private ImageIcon imageBackgound; //Esta imagen sera el paisajes
 	@SuppressWarnings("unused")
 	private JPanel jPanelBackground;
@@ -50,16 +49,17 @@ public class JPanelBackground extends JPanel {
 	}
 		
 	private void init() {		
-        this.setSize(new Dimension(imageBackgound.getIconWidth(),imageBackgound.getIconHeight()));
-        System.out.println(imageBackgound.getIconWidth()+"  "+imageBackgound.getIconHeight());
+
+        this.setSize(new Dimension(1300,740));
         jLabelTimer = new JLabelTimer();
         this.add(jLabelTimer);        
 	}	
 	
 	@Override
-    public void paint(Graphics graphics){
+  public void paint(Graphics graphics){
 	    Image imageBackGround = imageBackgound.getImage();        
 	    graphics.drawImage(imageBackGround,0,0,this.getWidth(),this.getHeight(), this);
+
 	    this.setOpaque(false);
 	    super.paint(graphics);
     }

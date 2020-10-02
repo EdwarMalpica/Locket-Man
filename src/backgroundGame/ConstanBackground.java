@@ -1,11 +1,9 @@
 package backgroundGame;
 
-
 import java.awt.Font;
 import utilities.FontGame;
 
 public class ConstanBackground {
-	
 	
 	
 	
@@ -22,7 +20,10 @@ public class ConstanBackground {
 		public static final Font TIMER_FONT = new FontGame().loadFont(PATH_FONT_TIMER, 60);
 		public static final Font TIMER_FONT_1 = new FontGame().loadFont(PATH_FONT_TIMER, 30);
 		public static final Font SUMMER_FONT_1 = new FontGame().loadFont(PATH_BUTTON_FONT, 30);
-		public static final Font SUMMER_FONT_SMALLSIZE = new FontGame().loadFont(PATH_BUTTON_FONT, 15);
+
+		public static final Font SUMMER_FONT_SMALLSIZE = new FontGame().loadFont(PATH_BUTTON_FONT, 20);
+		public static final Font SUMMER_FONT_SMALLSIZE_2 = new FontGame().loadFont(PATH_BUTTON_FONT, 40);
+
 
 		
 		//-----------------------------------------------------------------------------------------------
@@ -30,30 +31,32 @@ public class ConstanBackground {
 		public static final String TIMER_NAME = "TIMER";
 		public static final String START_VALUE_TIMER = "00:00";
 		public static final int[] BOUNDS_TIMER = {969,53,273,80};
-	//Hacerle internacionalizacion
-//		public  final static String[] TEXT_BUTTONS_MAIN_MENU = {propertiesManager.getBtnMainMenuMessagee(),propertiesManager.getBtnRegistryMessage(),
-//				propertiesManager.getBtnQuickPlayMessage(),propertiesManager.getBtnOptionsMessage(),propertiesManager.getBtnExitMessage()};
-		public static final String[] NAMES_BUTTONS_MAIN_MENU = {"txtMainMenu","btnRegistry","btnQuickPlay","btnOptions","btnExit"};
-//	//Hacerle internacionalizacion	
-//		public static  String[] TEXT_BUTTONS_QUICKPLAY_MENU = {propertiesManager.getBtnQuickPlayMessage(),propertiesManager.getBtnLevel1Message(),propertiesManager.getBtnLevel2Message(),propertiesManager.getBtnReturnMessage()};
-		public static final String[] NAME_BUTTONS_QUICKPLAY_MENU = {"txtQuickPlay","btnLevel1","btnLevel2","btnReturn"};
-//	//Hacerle internacionalizacion	
-//		public final static String[] TEXT_BUTTONS_OPTIONS_MENU = {propertiesManager.getBtnOptionsMessage(),propertiesManager.getBtnVolumeMessagee(),propertiesManager.getBtnLanguageMessage(),propertiesManager.getBtnHelpMessage(),
-//		propertiesManager.getBtnReturnMessage()};
-		public static final String[] NAME_BUTTONS_OPTIONS_MENU =  {"txtOpciones","btnVolume","btnLanguage","btnHelp","btnReturn"};
-//	//Hacerle internacionalizacion	
-//		public static String[] TEXT_BUTTONS_LANGUAGE_MENU = {propertiesManager.getBtnLanguageMessage(),propertiesManager.getBtnSpanishMessage(),propertiesManager.getBtnEnglishMessage(),propertiesManager.getBtnReturnMessage()};
-		public static final String[] NAME_BUTTONS_LANGUAGE_MENU = {"txtLenguage","btnSpanish","btnEnglish","btnReturn"};
-//	//Hacerle internacionalizacion	
-//	//Windows
-//		public static final WindowMenu WINDOW_MENU_QUICKPLAY= new WindowMenu(ConstanBackground.TEXT_BUTTONS_QUICKPLAY_MENU,ConstanBackground.NAME_BUTTONS_QUICKPLAY_MENU);
-//		public static final WindowMenu WINDOW_MENU_OPTIONS = new WindowMenu(ConstanBackground.TEXT_BUTTONS_OPTIONS_MENU,ConstanBackground.NAME_BUTTONS_OPTIONS_MENU);
-//		public static final WindowMenu WINDOW_MAIN_MENU = new WindowMenu(ConstanBackground.TEXT_BUTTONS_MAIN_MENU,ConstanBackground.NAMES_BUTTONS_MAIN_MENU);
-//		public static final WindowMenu WINDOW_LANGUAGE_MENU = new WindowMenu(ConstanBackground.TEXT_BUTTONS_LANGUAGE_MENU,ConstanBackground.NAME_BUTTONS_LANGUAGE_MENU);
-//		public static final WindowMessageGame WINDOW_HELP_MENU =  new WindowMessageGame(propertiesManager.getBtnHelpMessage(),propertiesManager.getTxtHelpMessage());
-//		public static final WindowRegistry WINDOW_REGISTRY = new WindowRegistry();
 
+	//Buttons Name
+		public static final String[] NAMES_BUTTONS_MAIN_MENU = {"txtMainMenu","btnRegistry","btnQuickPlay","btnOptions","btnExit"};
+		public static final String[] NAME_BUTTONS_QUICKPLAY_MENU = {"txtQuickPlay","btnLevel1","btnLevel2","btnReturn"};
+		public static final String[] NAME_BUTTONS_OPTIONS_MENU =  {"txtOpciones","btnVolume","btnLanguage","btnHelp","btnReturn"};
+		public static final String[] NAME_BUTTONS_LANGUAGE_MENU = {"txtLenguage","btnSpanish","btnEnglish","btnReturn"};
+
+		//Nombre botones
 		
+		public static final String NAME_BUTTON_REGISTRY = "btnRegistry";
+		public static final String NAME_BUTTON_LEVEL_1 = "btnLevel1";
+		public static final String NAME_BUTTON_LEVE_2 = "btnLevel2";
+		public static final String NAME_BUTTON_RETURN = "btnReturn";
+		public static final String NAME_BUTTON_VOLUME = "btnVolume";
+		public static final String NAME_BUTTON_LANGUAGE = "btnLanguage";
+		public static final String NAME_BUTTON_SPANISH = "btnSpanish";
+		public static final String NAME_BUTTON_ENGLISH = "btnEnglish";
+		public static final String NAME_BUTTON_EXIT = "btnExit";
+		public static final String NAME_BUTTON_QUICKPLAY = "btnQuickPlay";
+		public static final String NAME_BUTTON_OPTIONS = "btnOptions";
+		public static final String NAME_BUTTON_HELP = "btnHelp";
+		public static final String NAME_BUTTON_ACCEPT = "btnAccept";
+	
+		
+		
+
 
 	
 
