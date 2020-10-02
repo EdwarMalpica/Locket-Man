@@ -62,7 +62,7 @@ public class Constants {
 	public static final String PATH_BUTTON_LANGUAGE_EN = "../../resources/ingles.png";
 	public static final String PATH_LABEL_SOUND = "../../resources/sonido.png";
 	public static final String PATH_BUTTON_CLOSE_BLUE = "../../resources/back.png";
-	public static final String PATH_FILE_ABOUT_US = "../persistence/aboutUsES.txt";
+	public static final String PATH_FILE_ABOUT_US = "../../persistence/aboutUsES.txt";
 	
 	//Nombres de Fuentes...
 	public static final String PATH_FONT_MARIO = "Mario-Kart-DS.ttf";

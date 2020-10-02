@@ -42,6 +42,8 @@ public class PanelImage extends JPanel{
 	}
 	
 	private void init() {
+		System.out.println("hola");
+		System.out.println(this.getClass().getResource("").getPath());
 		this.url = this.getClass().getResource(pathImageFont);
 		this.image = new ImageIcon(url).getImage();
 	}

@@ -150,4 +150,8 @@ public class PropertiesManager {
 	public String getMessageAbout() {
 		return resourceBundle.getString("buttonAboutUs");
 	}
+	
+	public String getExitMessage() {
+		return resourceBundle.getString("exitButton");
+	}
 }

@@ -6,8 +6,7 @@ import com.uptc.LockedMan.view.splash.*;
 public class Testing {
 	
 	public static void main(String[] args) {
-//     	Splash splash = new Splash();
-//		splash.showSplash(13);
-		new RegisterFrame();
+    	Splash splash = new Splash();
+		splash.showSplash(13);
 	}
 }

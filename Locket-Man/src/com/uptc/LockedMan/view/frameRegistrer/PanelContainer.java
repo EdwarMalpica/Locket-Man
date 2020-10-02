@@ -8,6 +8,8 @@ import java.awt.Image;
 import java.awt.Point;
 
 import java.net.URL;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -30,6 +32,7 @@ public class PanelContainer extends JPanel{
 	private JButtonPlay buttonPlay;
 	private JButtonPlay buttonConfig;
 	private JButtonPlay buttonAbout;
+	private JButtonPlay buttonExit;
 	
 	private LabelPercent labelConfig;
 	private LabelPercent labelInitPlay;
@@ -108,6 +111,9 @@ public class PanelContainer extends JPanel{
 		labelConfig.setForeground(Color.black);
 		labelConfig.setHorizontalAlignment((int) CENTER_ALIGNMENT);
 		this.add(labelConfig);
+		
+		buttonExit = new JButtonPlay(Constants.DIMENSION_BUTTON_CLOSE, Constants.PATH_BUTTON_CLOSE, new Point(this.getWidth() - 40, 10));
+		this.add(buttonExit);
 	}
 	
 	/**
@@ -157,6 +163,7 @@ public class PanelContainer extends JPanel{
 		panelAbout.getButtonClose().addActionListener(new EventConfig(scrollPane, Constants.ADVANCE, Constants.UP_OR_DOWN, this.getHeight()/2, this.getHeight(), false));
 		optionsPanel.getButtonClose().addActionListener(new EventConfig(optionsPanel, Constants.BACK, Constants.MOVING_SIDE, 0, (0 - this.getWidth()/4), false));
 		optionsPanel.getButtonLanguage().addActionListener(new EventChangeLanguaje(this, propertiesManager, optionsPanel.getButtonLanguage(), null));
+		buttonExit.addActionListener(new EventCloseGame(propertiesManager));
 	}
 	
 	public PanelOptions getPanelOptions() {

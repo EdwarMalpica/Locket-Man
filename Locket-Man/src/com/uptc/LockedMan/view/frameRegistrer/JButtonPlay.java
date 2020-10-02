@@ -19,6 +19,7 @@ public class JButtonPlay extends JButton{
 		this.size = size;
 		this.imageIcon = imageIcon;
 		this.locale = locale;
+		this.setBorder(null);
 		init();
 	}
 	
