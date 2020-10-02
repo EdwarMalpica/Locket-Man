@@ -34,14 +34,14 @@ public class WindowMessageGame extends WindowGame{
 	@Override
 	protected void init() {
 		super.init();
-		jPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		jPanelBody.setLayout(new FlowLayout(FlowLayout.CENTER));
 		verifyCorrectSize();		
 		
 	}
 	private void setPropertiesLabels(String headerText) {
 		JLabelTextGame jLabelTextGame1 = new JLabelTextGame();
 		jLabelTextGame1.setText(headerText);
-		jPanel.add(jLabelTextGame1);		
+		jPanelBody.add(jLabelTextGame1);		
 		
 	}
 
@@ -52,12 +52,12 @@ public class WindowMessageGame extends WindowGame{
 		jTextArea.setFont(ConstanBackground.SUMMER_FONT_SMALLSIZE);
 		jTextArea.setForeground(Color.white);
 		jTextArea.setBorder(BorderFactory.createEmptyBorder(20,20,50,20));
-		jPanel.add(jTextArea);
+		jPanelBody.add(jTextArea);
 	}
 	
 	private void setButton() {
-		JButtonOption jButtonOption = new JButtonOption(jPanel,PropertiesManager.getPropertiesManager().getBtnReturnMessage(),"btnReturn");
-		jPanel.add(jButtonOption);
+		JButtonOption jButtonOption = new JButtonOption(jPanelBody,PropertiesManager.getPropertiesManager().getBtnReturnMessage(),"btnReturn");
+		jPanelBody.add(jButtonOption);
 	}
 	@Override
 	public void verifyCorrectSize() {

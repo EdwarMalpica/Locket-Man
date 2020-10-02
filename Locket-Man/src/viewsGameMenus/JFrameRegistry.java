@@ -20,6 +20,21 @@ public class JFrameRegistry extends JFrame{
 
 	private JPanel jPanel;
 	private Dimension dimension;
+	private JTextField jTextField;
+	/**
+	 * @return the jTextField
+	 */
+	public JTextField getjTextField() {
+		return jTextField;
+	}
+
+	/**
+	 * @param jTextField the jTextField to set
+	 */
+	public void setjTextField(JTextField jTextField) {
+		this.jTextField = jTextField;
+	}
+
 	private ImageIcon img;
 	
 	public JFrameRegistry() {
@@ -76,7 +91,7 @@ public class JFrameRegistry extends JFrame{
 
 	private void setTextField() {
 		JPanel panel = new JPanel();
-		JTextField jTextField = new JTextField();
+		jTextField = new JTextField();
 		jTextField.setPreferredSize(new Dimension(this.getWidth()/2,40));
 		jTextField.setFont(ConstanBackground.SUMMER_FONT_SMALLSIZE);
 		panel.add(jTextField);
@@ -87,7 +102,7 @@ public class JFrameRegistry extends JFrame{
 	private void setButtons() {
 		JPanel panel = new JPanel(new FlowLayout());
 		panel.add(new JButtonOption(jPanel,PropertiesManager.getPropertiesManager().getBtnReturnMessage(), "btnReturn"));
-		panel.add(new JButtonOption(jPanel,"Aceptar", "btnAcept"));
+		panel.add(new JButtonOption(jPanel,PropertiesManager.getPropertiesManager().getBtnAceptMessage(), "btnAccept"));
 		panel.setOpaque(false);
 		jPanel.add(panel);
 	}

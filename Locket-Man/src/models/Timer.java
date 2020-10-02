@@ -2,6 +2,7 @@ package models;
 
 public class Timer {
 	private int minutes,seconds,milseconds; 
+	
 	public Timer() {
 		try {
 			setTimerFuction();

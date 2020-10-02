@@ -36,7 +36,7 @@ public class WindowMenu extends WindowGame{
 	@Override
 	protected void init() {
 		super.init();
-		jPanel.setLayout(new GridLayout(numberDivisions,0));
+		jPanelBody.setLayout(new GridLayout(numberDivisions,0));
 		addPanels();
 	}
 	
@@ -63,9 +63,9 @@ public class WindowMenu extends WindowGame{
 			JPanelMenu jPanelPauseOption = new JPanelMenu(this);	
 			jPanelPauseOption.setButton(buttonsTextList[i],buttonsNameList[i]);
 			if (i == 0) {
-				jPanel.add(new JPanelHeaderMenu(buttonsTextList[i],this));
+				jPanelBody.add(new JPanelHeaderMenu(buttonsTextList[i],this));
 			}else {
-				jPanel.add(jPanelPauseOption);
+				jPanelBody.add(jPanelPauseOption);
 			}			
 		}
 	}

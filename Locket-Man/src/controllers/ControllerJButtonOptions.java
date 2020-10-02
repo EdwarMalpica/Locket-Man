@@ -4,11 +4,17 @@ import java.awt.Color;
 import java.awt.Window;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+
 import backgroundGame.ConstanBackground;
 import backgroundGame.JFrameBackGround;
+import models.GameMatch;
+import models.Player;
+import persistence.FileWriterGame;
 import utilities.LoaderWindow;
 import utilities.PropertiesManager;
 import viewsGameMenus.JButtonOption;
+import viewsGameMenus.JFrameRegistry;
 import viewsGameMenus.JPanelMenu;
 import viewsGameMenus.WindowMenu; 
 
@@ -17,6 +23,8 @@ public class ControllerJButtonOptions implements MouseListener{
 	private static ControllerJButtonOptions myControllerJButtonOptions = null;
 	private Window windowMenuCurrent;
 	private LoaderWindow loaderWindow;
+	private FileWriterGame fileWriterGame;
+	private Player player; 
 	
 	public ControllerJButtonOptions() {
 		super(); 
@@ -40,7 +48,7 @@ public class ControllerJButtonOptions implements MouseListener{
 			quickPlayFuction((JButtonOption)e.getComponent());
 			optionsMenuFuction((JButtonOption)e.getComponent());
 			setFuctionChangeIdiom((JButtonOption)e.getComponent());
-			System.out.println(e.getComponent().getName());
+			setRegistryFuction((JButtonOption)e.getComponent());
 
 		} catch (InterruptedException e1) {
 			
@@ -80,16 +88,16 @@ public class ControllerJButtonOptions implements MouseListener{
 	private void setFuctionButtons(JButtonOption jButtonOption) {
 		String btnName = jButtonOption.getName();
 		switch (btnName) {
-		case "btnExit":
+		case ConstanBackground.NAME_BUTTON_EXIT:
 			exitFuction(jButtonOption);
 			break;
-		case "btnQuickPlay":
+		case ConstanBackground.NAME_BUTTON_QUICKPLAY:
 			showQuickPLayMenu();
 			break;
-		case "btnOptions":
+		case ConstanBackground.NAME_BUTTON_OPTIONS:
 			showOptionMenu();
 			break;			
-		case "btnRegistry":
+		case ConstanBackground.NAME_BUTTON_REGISTRY:
 			showRegistryWindow();
 		default:
 			break;
@@ -111,14 +119,14 @@ public class ControllerJButtonOptions implements MouseListener{
 	private void quickPlayFuction(JButtonOption jButtonOption) throws InterruptedException {
 		JFrameBackGround jFrameBackGroundLevel;
 		switch (jButtonOption.getName()) {
-		case "btnLevel1":
+		case ConstanBackground.NAME_BUTTON_LEVEL_1:
 			jFrameBackGroundLevel = new JFrameBackGround(getClass().getResource(ConstanBackground.PATH_BACKGROUND_LEVEL1_IMAGE).getPath());
 			break;
-		case "btnLevel2":
+		case ConstanBackground.NAME_BUTTON_LEVE_2:
 			jFrameBackGroundLevel = new JFrameBackGround(getClass().getResource(ConstanBackground.PATH_BACKGROUND_LEVEL2_IMAGE).getPath());
 			jFrameBackGroundLevel .getjPanelBackground().getjLabelTimer().setForeground(Color.white);
 			break;
-		case "btnReturn":
+		case ConstanBackground.NAME_BUTTON_RETURN:
 			showMainMenu();
 			break;
 		default:
@@ -133,6 +141,10 @@ public class ControllerJButtonOptions implements MouseListener{
 	private void setAnimationSizeFontButtons(JButtonOption jButtonOption) {
 		jButtonOption.getjLabelTextButton().setAnimationByFontSize();
 	}
+	/**
+	 * Volvemos a poner la fuente de menor tamaño
+	 * @param jButtonOption
+	 */
 	private void setOffAnimationSizeFontButtons(JButtonOption jButtonOption) {
 		jButtonOption.getjLabelTextButton().setNormalFont();
 	}
@@ -166,13 +178,15 @@ public class ControllerJButtonOptions implements MouseListener{
 	
 	private void optionsMenuFuction(JButtonOption jButtonOption) {
 		switch (jButtonOption.getName()) {
-		case "btnLanguage":
+		case ConstanBackground.NAME_BUTTON_VOLUME:
+			showTop3ResultsWindow();
+		case ConstanBackground.NAME_BUTTON_LANGUAGE:
 			 showWindowLanguageMenu();
 			break;
-		case "btnHelp":
+		case ConstanBackground.NAME_BUTTON_HELP:
 			showHelpWindow();
 			break;
-		case "btnReturn":
+		case ConstanBackground.NAME_BUTTON_RETURN:
 			showMainMenu();
 			break;
 		default:
@@ -186,6 +200,11 @@ public class ControllerJButtonOptions implements MouseListener{
 		windowMenuCurrent =	loaderWindow.getWindowLanguage();
 		windowMenuCurrent.setVisible(true);
 	}
+	private void showTop3ResultsWindow() {
+		windowMenuCurrent = loaderWindow.getWindowTop3();
+		//Poner el metodo addResults Para que cargue la matriz
+		windowMenuCurrent.setVisible(true);
+	}
 	/**
 	 * Muestra el menu de ayuda
 	 */
@@ -193,9 +212,11 @@ public class ControllerJButtonOptions implements MouseListener{
 		windowMenuCurrent = loaderWindow.getWindowHelp();
 		windowMenuCurrent.setVisible(true);
 	}
+	/**
+	 * Muestra la ventana de registro, cierra la venta actual para mostrar la de registro
+	 */
 	
 	private void showRegistryWindow() {
-		windowMenuCurrent.dispose();
 		windowMenuCurrent = loaderWindow.getWindow();
 		windowMenuCurrent.setVisible(true);
 	}
@@ -206,17 +227,65 @@ public class ControllerJButtonOptions implements MouseListener{
 	private void setFuctionChangeIdiom(JButtonOption jButtonOption) {
 		PropertiesManager propertiesManager = PropertiesManager.getPropertiesManager();
 		switch (jButtonOption.getName()) {
-		case "btnSpanish":
+		case ConstanBackground.NAME_BUTTON_SPANISH:
 			propertiesManager.setSpanishLanguage();			
 			loaderWindow.updateLanguageSpanish();
 			showMainMenu();
 			break;
-		case "btnEnglish":
+		case ConstanBackground.NAME_BUTTON_ENGLISH:
 			propertiesManager.setEnglishLanguage();
 			loaderWindow.updateLanguageEnglish();
 			showMainMenu();
 			break;
 		}
 	}
+	
+	/**
+	 * Funcion que realizara cuando haga click en el boton de aceptar 
+	 * @param jButtonOption
+	 */
+	private void setRegistryFuction(JButtonOption jButtonOption) {
+		if (jButtonOption.getName().equals(ConstanBackground.NAME_BUTTON_ACCEPT)) {
+			JFrameRegistry jFrameRegistry = (JFrameRegistry) windowMenuCurrent;
+			setPlayerRegistry(jFrameRegistry.getjTextField().getText());
+			FileWriterGame  fileWriterGame = FileWriterGame.getFileWriterGame();
+			for (int i = 0; i < 4; i++) {
+				writeResultFile(player.getUserName(), "Nivel 2", "32:09");
+				writeResultFile(player.getUserName(), "Nivel 3", "2:09");
+				writeResultFile(player.getUserName(), "Nivel 1", "3:49");
+				writeResultFile(player.getUserName(), "Nivel 3", "5:56");
+			}
+			fileWriterGame.closeWriters();
+		}
+		
+	}
+	
+	/**
+	 * Creamos el objeto jugador justo cuando se ejecute el boton de aceptar del registro
+	 * @param userName
+	 */
+	private void setPlayerRegistry(String userName) {
+		player = new Player(userName);
+		System.out.println(userName);
+	}
 
+	/**
+	 * Escribe los resultados en el archivo de playerData
+	 */
+	private void writeResultFile(String userName,String levelName,String time) {
+		FileWriterGame  fileWriterGame = FileWriterGame.getFileWriterGame();
+		savePlayerResult(levelName,time);
+		String data = userName+","+levelName+","+time;
+		fileWriterGame.writeFile(data);
+	}
+	/**
+	 * Guarda la partida en los datos del jugador 
+	 * @param levelName
+	 * @param time
+	 */
+	
+	private void savePlayerResult(String levelName,String time) {
+		ArrayList<GameMatch> listPlayerMatches = player.getGameMatchList();
+		listPlayerMatches.add(new GameMatch(levelName, time));
+	}
 }

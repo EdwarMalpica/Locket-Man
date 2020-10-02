@@ -48,7 +48,24 @@ public class ConstanBackground {
 		public static final String[] NAME_BUTTONS_OPTIONS_MENU =  {"txtOpciones","btnVolume","btnLanguage","btnHelp","btnReturn"};
 		public static final String[] NAME_BUTTONS_LANGUAGE_MENU = {"txtLenguage","btnSpanish","btnEnglish","btnReturn"};
 
-
+		//Nombre botones
+		
+		public static final String NAME_BUTTON_REGISTRY = "btnRegistry";
+		public static final String NAME_BUTTON_LEVEL_1 = "btnLevel1";
+		public static final String NAME_BUTTON_LEVE_2 = "btnLevel2";
+		public static final String NAME_BUTTON_RETURN = "btnReturn";
+		public static final String NAME_BUTTON_VOLUME = "btnVolume";
+		public static final String NAME_BUTTON_LANGUAGE = "btnLanguage";
+		public static final String NAME_BUTTON_SPANISH = "btnSpanish";
+		public static final String NAME_BUTTON_ENGLISH = "btnEnglish";
+		public static final String NAME_BUTTON_EXIT = "btnExit";
+		public static final String NAME_BUTTON_QUICKPLAY = "btnQuickPlay";
+		public static final String NAME_BUTTON_OPTIONS = "btnOptions";
+		public static final String NAME_BUTTON_HELP = "btnHelp";
+		public static final String NAME_BUTTON_ACCEPT = "btnAccept";
+	
+		
+		
 		
 
 	
