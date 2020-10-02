@@ -1,5 +1,6 @@
 package com.uptc.LockeMan.utilities;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,8 +13,8 @@ public class PropertiesManager {
 
 	private ResourceBundle resourceBundle;
 	private static PropertiesManager myPropertiesManager;
-	public static final String PATH_PROPERTIES_FILE_ES = "../com/uptc/LockeMan/propertiesMenuMessages_es_CO.properties";
-	public static final String PATH_PROPERTIES_FILE_EN = "../com/uptc/LockeMan/propertiesMenuMessages/propertiesMenuMessages_en_GB.properties";
+	public static final String PATH_PROPERTIES_FILE_ES = "../propertiesMenuMessages/propertiesMenuMessages_es_CO.properties";
+	public static final String PATH_PROPERTIES_FILE_EN = "../propertiesMenuMessages/propertiesMenuMessages_en_GB.properties";
 
 	public PropertiesManager() {
 		init();		
@@ -26,9 +27,11 @@ public class PropertiesManager {
 	}
 	
 	private void init() {
+		
 		try {
 			String languageSystem = System.getProperty("user.language");
 			if (languageSystem.equals("es")) {
+				
 				FileInputStream fis = new FileInputStream(getClass().getResource(PATH_PROPERTIES_FILE_ES).getPath());
 				resourceBundle = new PropertyResourceBundle(fis);
 			} else {

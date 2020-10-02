@@ -57,7 +57,7 @@ public class JPanelBackground extends JPanel {
 //	    graphics.fillRect(0,600,300,600);
 //	    graphics.fillRect(300,600,300,600);
 //	    graphics.fillRect(600,500,300,600);
-//	    graphics.fillRect(900,400,600,600);graphics.setColor(Color.blue);
+//	    graphics.fillRect(900,400,600,600);
 //	    graphics.fillRect(400,300,400,50);
 //	    graphics.fillRect(500,200,80,100);
 //	    graphics.fillRect(0,200,300,50);
@@ -89,7 +89,7 @@ public class JPanelBackground extends JPanel {
 //		graphics.fillRect(400,220,200,50);
 //		graphics.fillRect(700,150,200,50);
 //		graphics.fillRect(0,70,600,50);
-//		//graphics.fillRect(100,20,20,70); Puerta
+		//graphics.fillRect(100,20,20,70); Puerta
 	    
 	    this.setOpaque(false);
 	    super.paint(graphics);
