@@ -1,14 +1,11 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
-
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.sound.Sounds;
-import com.uptc.LockedMan.view.splash.AnimatedLabels;
+import constants.Constants;
+import sound.Sounds;
+import view.splash.AnimatedLabels;
 
 public class EventConfig implements ActionListener{
 	

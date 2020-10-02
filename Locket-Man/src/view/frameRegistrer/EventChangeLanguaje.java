@@ -1,12 +1,9 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JLabel;
-
-import com.uptc.LockedMan.constants.Constants;
-
+import constants.Constants;
 import utilities.PropertiesManager;
 
 public class EventChangeLanguaje implements ActionListener{

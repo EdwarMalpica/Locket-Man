@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.sound;
+package sound;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -8,7 +8,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 
-import com.uptc.LockedMan.constants.Constants;
+import constants.Constants;
 
 /**
  *
@@ -44,7 +44,7 @@ public class Sounds {
     }
 
     /**
-     * Inicia la ejecución del sonido con diferente volumen
+     * Inicia la ejecuciï¿½n del sonido con diferente volumen
      * @param nameTrak nombre de la cancion a ejecutar
      * @param waitInSeconds tiempo que va a durar el sonido reproduciendose
      * @param volumeDown la cantidad de volumen a reducir (en decibeles)
@@ -58,7 +58,7 @@ public class Sounds {
             gainControl.setValue(volumeDown); // Reduce volume by 10 decibels.
             clip2.loop(waitInSeconds * 1000);
         } catch (Exception e) {
-        	System.out.println("No se encontró el sonido");
+        	System.out.println("No se encontrï¿½ el sonido");
         }
     }
     

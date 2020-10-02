@@ -1,9 +1,9 @@
-package com.uptc.LockedMan.view.splash;
+package view.splash;
 
-import java.awt.*;
+import java.awt.Dimension;
+
 import javax.swing.JPanel;
-
-import com.uptc.LockedMan.constants.Constants;
+import constants.Constants;
 
 public class PanelCharge extends JPanel{
 	

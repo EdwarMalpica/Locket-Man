@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -33,7 +33,7 @@ public class JButtonPlay extends JButton{
 	}
 	
 	/**
-	 * añade el icono al boton
+	 * aï¿½ade el icono al boton
 	 * @param imageIcon ruta de la imagen a cambiar
 	 */
 	public void setIcon(String imageIcon) {

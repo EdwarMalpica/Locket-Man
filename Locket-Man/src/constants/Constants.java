@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.constants;
+package constants;
 
 import java.awt.*;
 
@@ -26,7 +26,7 @@ public class Constants {
 	public static final Point POINT_LABEL_VERSION = new Point(285, 220);
 	public static final Point POINT_CERO = new Point(0,0);
 
-	//Tamaños de fuentes...
+	//Tamaï¿½os de fuentes...
 	public static final int SIZE_FONT_MARIO_PERCENT = 100;
 	public static final int SIZE_WELLCOME_MESSAGE = 62;
 	public static final int SIZE_FONT_VERSION = 28;
@@ -47,22 +47,22 @@ public class Constants {
 	public static final String MESSAGE_ABOUT_US = "ACERCA DE";
 	
 	//Direcciones 
-	public static final String PATH_BACKGROUND_SPLASH = "../../resources/background8.jpg";
-	public static final String PATH_AVATAR_IMAGE = "../../resources/anim1.png";
-	public static final String PATH_GIFT_1 = "../../resources/giftMolin.gif";
-	public static final String PATH_SPRITE_RUN = "../../resources/SpriteAvatar.png";
-	public static final String PATH_ARRAY_ANIM = "../../resources/anim1/avatarYellow";
-	public static final String PATH_DIRECTORY_SOUNDS = "../tracks/";
-	public static final String PATH_BACKGROUND_REGISTRY = "../../resources/font1.png";
-	public static final String PATH_BUTTON_PLAY = "../../resources/buttonPlay.png";
-	public static final String PATH_BUTTON_CONFIG = "../../resources/buttonConfig.png";
-	public static final String PATH_BUTTON_ABOUT = "../../resources/about.png";
-	public static final String PATH_BUTTON_CLOSE = "../../resources/btnClose.png";
-	public static final String PATH_BUTTON_LANGUAGE_ES = "../../resources/español.png";
-	public static final String PATH_BUTTON_LANGUAGE_EN = "../../resources/ingles.png";
-	public static final String PATH_LABEL_SOUND = "../../resources/sonido.png";
-	public static final String PATH_BUTTON_CLOSE_BLUE = "../../resources/back.png";
-	public static final String PATH_FILE_ABOUT_US = "../../persistence/aboutUsES.txt";
+	public static final String PATH_BACKGROUND_SPLASH = "/resources/background8.jpg";
+	public static final String PATH_AVATAR_IMAGE = "/resources/anim1.png";
+	public static final String PATH_GIFT_1 = "/resources/giftMolin.gif";
+	public static final String PATH_SPRITE_RUN = "/resources/SpriteAvatar.png";
+	public static final String PATH_ARRAY_ANIM = "/resources/anim1/avatarYellow";
+	public static final String PATH_DIRECTORY_SOUNDS = "/tracks/";
+	public static final String PATH_BACKGROUND_REGISTRY = "/resources/font1.png";
+	public static final String PATH_BUTTON_PLAY = "/resources/buttonPlay.png";
+	public static final String PATH_BUTTON_CONFIG = "/resources/buttonConfig.png";
+	public static final String PATH_BUTTON_ABOUT = "/resources/about.png";
+	public static final String PATH_BUTTON_CLOSE = "/resources/btnClose.png";
+	public static final String PATH_BUTTON_LANGUAGE_ES = "/resources/espaÃ±ol.png";
+	public static final String PATH_BUTTON_LANGUAGE_EN = "/resources/ingles.png";
+	public static final String PATH_LABEL_SOUND = "/resources/sonido.png";
+	public static final String PATH_BUTTON_CLOSE_BLUE = "/resources/back.png";
+	public static final String PATH_FILE_ABOUT_US = "/persistence/aboutUsES.txt";
 	
 	//Nombres de Fuentes...
 	public static final String PATH_FONT_MARIO = "Mario-Kart-DS.ttf";

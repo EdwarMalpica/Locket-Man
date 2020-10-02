@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,8 +9,8 @@ import java.io.FileReader;
 
 import javax.swing.JTextArea;
 
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.fonts.FontAdd;
+import constants.Constants;
+import fonts.FontAdd;
 
 public class JTextAreaContainer extends JTextArea{
 	
@@ -24,7 +24,7 @@ public class JTextAreaContainer extends JTextArea{
 	
 	/**
 	 * contenedor de texto grande
-	 * @param size tamaño que va a tener el textArea
+	 * @param size tamaï¿½o que va a tener el textArea
 	 * @param locale localizacion del mismo
 	 * @param pathText direccion donde se encuentra el texto a mostrar
 	 */
@@ -70,8 +70,8 @@ public class JTextAreaContainer extends JTextArea{
 	}
 	
 	/**
-	 * añade el texto a este componente
-	 * @param text texto a añadir
+	 * aï¿½ade el texto a este componente
+	 * @param text texto a aï¿½adir
 	 */
 	public void setTextAllText(String text) {
 		this.setText(text);

@@ -1,13 +1,10 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
-
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import com.uptc.LockedMan.constants.Constants;
+import constants.Constants;
 
 public class PanelAbout extends JPanel{
 	
@@ -16,7 +13,7 @@ public class PanelAbout extends JPanel{
 	
 	/**
 	 * panel que contiene el textArea en donde se va a poner la informacion del programa
-	 * @param size tamaño del panel
+	 * @param size tamaï¿½o del panel
 	 */
 	public PanelAbout(Dimension size) {
 		this.setSize(size);

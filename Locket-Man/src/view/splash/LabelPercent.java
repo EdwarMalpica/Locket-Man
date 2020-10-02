@@ -1,27 +1,24 @@
-package com.uptc.LockedMan.view.splash;
+package view.splash;
 
-import javax.swing.*;
-
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.fonts.FontAdd;
-
-import java.awt.*;
+import javax.swing.JLabel;
+import constants.Constants;
+import fonts.FontAdd;
 
 public class LabelPercent extends JLabel{
 	
 	private FontAdd font;
 
 	/**
-	 * constructor sencillo que añade un label 
+	 * constructor sencillo que aï¿½ade un label 
 	 */
 	public LabelPercent() {
 		init();
 	}
 	
 	/**
-	 * sobrecarga del constructor dondonde se le puede añadir texto al label
-	 * @param text texto a añadir
-	 * @param size tamaño que va a tener el label
+	 * sobrecarga del constructor dondonde se le puede aï¿½adir texto al label
+	 * @param text texto a aï¿½adir
+	 * @param size tamaï¿½o que va a tener el label
 	 */
 	public LabelPercent(String text, int size) {
 		font = new FontAdd();

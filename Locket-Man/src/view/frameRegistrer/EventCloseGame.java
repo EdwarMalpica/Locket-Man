@@ -1,13 +1,10 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
-
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.sound.Sounds;
-
+import constants.Constants;
+import sound.Sounds;
 import utilities.PropertiesManager;
 
 public class EventCloseGame implements ActionListener{

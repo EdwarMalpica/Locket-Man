@@ -1,18 +1,14 @@
 /**
  * 
  */
-package com.uptc.LockedMan.view.splash;
+package view.splash;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.net.URL;
-
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import com.uptc.LockedMan.constants.Constants;
 
 /**
  * @author Jorge Ayala
@@ -42,8 +38,7 @@ public class PanelImage extends JPanel{
 	}
 	
 	private void init() {
-		System.out.println("hola");
-		System.out.println(this.getClass().getResource("").getPath());
+		System.out.println(pathImageFont);
 		this.url = this.getClass().getResource(pathImageFont);
 		this.image = new ImageIcon(url).getImage();
 	}

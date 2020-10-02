@@ -1,20 +1,9 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Panel;
-import java.awt.Point;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.sound.Sounds;
-import com.uptc.LockedMan.view.splash.PanelImage;
+import constants.Constants;
+import sound.Sounds;
+import view.splash.PanelImage;
 
 public class RegisterFrame extends JFrame{
 	

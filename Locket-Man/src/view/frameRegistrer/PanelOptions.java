@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,8 +7,8 @@ import java.awt.Point;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.view.splash.LabelAvatar;
+import constants.Constants;
+import view.splash.LabelAvatar;
 
 public class PanelOptions extends JPanel{
 	
@@ -22,7 +22,7 @@ public class PanelOptions extends JPanel{
 
 	/**
 	 * panel para las opciones del juego
-	 * @param size tamaño del panel
+	 * @param size tamaï¿½o del panel
 	 * @param locale localizacion del panel
 	 */
 	public PanelOptions(Dimension size, Point locale) {

@@ -1,7 +1,6 @@
-package com.uptc.LockedMan.test;
+package test;
 
-import com.uptc.LockedMan.view.frameRegistrer.*;
-import com.uptc.LockedMan.view.splash.*;
+import view.splash.Splash;
 
 public class Testing {
 	

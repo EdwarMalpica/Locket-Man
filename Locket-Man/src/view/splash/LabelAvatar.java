@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.view.splash;
+package view.splash;
 
 import java.awt.Point;
 import java.net.URL;

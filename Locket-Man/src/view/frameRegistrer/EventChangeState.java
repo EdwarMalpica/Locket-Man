@@ -1,10 +1,9 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
-import com.uptc.LockedMan.sound.Sounds;
+import sound.Sounds;
 
 public class EventChangeState implements ChangeListener{
 	

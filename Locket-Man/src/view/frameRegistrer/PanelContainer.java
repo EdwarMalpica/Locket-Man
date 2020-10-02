@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.view.frameRegistrer;
+package view.frameRegistrer;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -6,20 +6,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
-
 import java.net.URL;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
-
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.view.frameRegistrer.JButtonPlay;
-import com.uptc.LockedMan.view.splash.LabelPercent;
-
+import constants.Constants;
 import utilities.PropertiesManager;
+import view.splash.LabelPercent;
 
 public class PanelContainer extends JPanel{
 	
@@ -43,7 +38,7 @@ public class PanelContainer extends JPanel{
 	
 	/**
 	 * este panel se encarga de mantener todos los botones del frame de registro
-	 * @param size tamaño del panel
+	 * @param size tamaï¿½o del panel
 	 * @param locale localizacion del panel
 	 */
 	public PanelContainer(Dimension size, Point locale) {
@@ -155,7 +150,7 @@ public class PanelContainer extends JPanel{
 	}
 	
 	/**
-	 * añade los eventos de los botones al panel
+	 * aï¿½ade los eventos de los botones al panel
 	 */
 	public void setEvents() {
 		getButtonConfig().addActionListener(new EventConfig(optionsPanel, Constants.ADVANCE, Constants.MOVING_SIDE, optionsPanel.getX(), 0, true));

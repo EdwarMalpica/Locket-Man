@@ -1,17 +1,12 @@
 /**
  * 
  */
-package com.uptc.LockedMan.view.splash;
+package view.splash;
 
-import javax.swing.*;
-
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.sound.Sounds;
-import com.uptc.LockedMan.view.frameRegistrer.RegisterFrame;
-
-import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
+import javax.swing.JFrame;
+import constants.Constants;
+import sound.Sounds;
+import view.frameRegistrer.RegisterFrame;
 
 /**
  * @author Jorge Ayala
@@ -43,7 +38,7 @@ public class Splash extends JFrame{
 	}
 	
 	/**
-	 * añade los componentes de este frame
+	 * aï¿½ade los componentes de este frame
 	 */
 	private void addComponent() {
 		panelImage = new PanelImage(Constants.PATH_BACKGROUND_SPLASH, this.getSize());
@@ -103,7 +98,7 @@ public class Splash extends JFrame{
 				time ++;
 			}
 		} catch (Exception e) {
-			System.out.println("Error en la ejecución");
+			System.out.println("Error en la ejecuciï¿½n");
 		}
 		
 		//terminamos deshaciendo la ventana

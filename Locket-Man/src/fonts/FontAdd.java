@@ -1,4 +1,4 @@
-package com.uptc.LockedMan.fonts;
+package fonts;
 
 import java.awt.Font;
 import java.io.InputStream;

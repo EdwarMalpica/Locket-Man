@@ -10,8 +10,8 @@ public class PropertiesManager {
 	private ResourceBundle resourceBundle;
 	
 	private static PropertiesManager myPropertiesManager;
-	public static final String PATH_PROPERTIES_FILE_ES = "../propertiesMenuMessages/propertiesMenuMessages_es_CO.properties";
-	public static final String PATH_PROPERTIES_FILE_EN = "../propertiesMenuMessages/propertiesMenuMessages_en_GB.properties";
+	public static final String PATH_PROPERTIES_FILE_ES = "/resources/propertiesMenuMessages/propertiesMenuMessages_es_CO.properties";
+	public static final String PATH_PROPERTIES_FILE_EN = "/resources/propertiesMenuMessages/propertiesMenuMessages_en_GB.properties";
 
 	public PropertiesManager() {
 		init();		

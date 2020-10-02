@@ -1,11 +1,11 @@
-package com.uptc.LockedMan.view.splash;
+package view.splash;
 
 import java.awt.Component;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.sound.Sounds;
+import constants.Constants;
+import sound.Sounds;
 
 public class AnimatedLabels {
 	
@@ -27,7 +27,7 @@ public class AnimatedLabels {
 	private Sounds run;
 	
 	/**
-	* Grafíca en un label una pequeña animación
+	* Grafï¿½ca en un label una pequeï¿½a animaciï¿½n
 	* @param labelToAnim label que vamos a animar
 	* @param moveTo indica si queremos mover la imagen hacia el frente o hacia atras
 	* @param direction desplazar la imagen de arriba para abajo o al reves
@@ -45,7 +45,7 @@ public class AnimatedLabels {
 	}
 	
 	/**
-	 * Grafíca en un label una pequeña animación
+	 * Grafï¿½ca en un label una pequeï¿½a animaciï¿½n
 	 * @param labelToAnim label que vamos a animar
 	 * @param moveTo indica si queremos mover la imagen hacia el frente o hacia atras
 	 * @param direction desplazar la imagen de arriba para abajo o al reves
@@ -106,7 +106,7 @@ public class AnimatedLabels {
 	}
 	
 	/**
-	 * inicia la animacion del label, cambiando en cada iteración la imagen del mismo
+	 * inicia la animacion del label, cambiando en cada iteraciï¿½n la imagen del mismo
 	 */
 	public void animAndChangeImage() {
 		thread = new Thread(new Runnable() {
