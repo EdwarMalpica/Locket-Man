@@ -1,5 +1,6 @@
 package locketMan;
 
+
 import controller.Controller;
 import model.ModelManager;
 import view.JFramePrincipal;
@@ -14,5 +15,6 @@ public class LocketMan {
 		Controller.getInstanceOf().setFramePrincipal(framePrincipal);
 		Controller.getInstanceOf().setManager(manager);
 		Controller.getInstanceOf().init();
+
 	}
 }
