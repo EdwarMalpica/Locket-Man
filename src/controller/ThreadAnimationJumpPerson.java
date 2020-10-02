@@ -2,10 +2,10 @@
  *ThreadAnimationJumpPerson.java  
  *asdasd
  */
-package com.uptc.LockedMan.controller;
+package controller;
 
-import com.uptc.LockedMan.model.ModelManager;
-import com.uptc.LockedMan.view.JFramePrincipal;
+import model.ModelManager;
+import view.JFramePrincipal;
 
 /**
  * @author eduar
@@ -13,12 +13,12 @@ import com.uptc.LockedMan.view.JFramePrincipal;
  */
 public class ThreadAnimationJumpPerson implements Runnable{
 	private JFramePrincipal framePrincipal;
-	private ModelManager manager;
+
 	private boolean status;
 	
 	public ThreadAnimationJumpPerson(JFramePrincipal framePrincipal,ModelManager manager) {
 		this.framePrincipal = framePrincipal;
-		this.manager = manager;
+		
 		this.status = false;
 	}
 	@Override

@@ -2,20 +2,16 @@
  *JPanelPerson.java  
  *asdasd
  */
-package com.uptc.LockedMan.view;
+package view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
-import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.controller.Controller;
-import com.uptc.LockedMan.model.Level;
+import controller.Controller;
+import model.Level;
 
 /**
  * @author eduar
@@ -28,7 +24,8 @@ public class JPanelPerson extends JPanel{
 	 */
 	private static final long serialVersionUID = 8953700619649581763L;
 	private JLabelPerson jLabelPerson;
-	private Rectangle[] levelFormat;
+	//private Rectangle[] levelFormat;
+	private ArrayList<Rectangle> levelFormat;
 	private Rectangle currentRectangle;
 	private Rectangle box;
 	
@@ -43,6 +40,9 @@ public class JPanelPerson extends JPanel{
 	 * 
 	 */
 	private void init(String pathImage) {
+		
+		this.levelFormat = new ArrayList<Rectangle>();
+		door = null;
 		this.addKeyListener(Controller.getInstanceOf());
 		this.setFocusable(true);
 		this.setBackground(Color.green);
@@ -54,14 +54,14 @@ public class JPanelPerson extends JPanel{
 		
 		
 		
-		levelFormat = new Rectangle[] {
-			new Rectangle(0,480,350,240),
-			new Rectangle(347,585,207,235),
-			new Rectangle(550,483,280,235),
-			new Rectangle(820,577,223,123),
-			new Rectangle(1043,493,280,205)
-			
-		};
+//		levelFormat = new Rectangle[] {
+//			new Rectangle(0,480,350,240),
+//			new Rectangle(347,585,207,235),
+//			new Rectangle(550,483,280,235),
+//			new Rectangle(820,577,223,123),
+//			new Rectangle(1043,493,280,205)
+//			
+//		};
 		box = new Rectangle(580,433,50,50);
 		//addRectangle();
 		
@@ -127,10 +127,16 @@ public class JPanelPerson extends JPanel{
 	}
 	
 	public void drawLevel(Level level) {
+		
 		ArrayList<Rectangle> floor= level.getFloor();
 		ArrayList<Rectangle> obstacle= level.getObstacles();
+		for (Rectangle rectangle : floor) {
+			levelFormat.add(rectangle);
+			this.drawRectLevel(rectangle);
+		}
 		for (Rectangle rectangle : obstacle) {
-			
+			levelFormat.add(rectangle);
+			this.drawRectLevel(rectangle);
 		}
 		
 		
@@ -188,7 +194,7 @@ public class JPanelPerson extends JPanel{
 		try {
 			Thread.sleep(3);
 		} catch (InterruptedException e) {
-			// TODO Bloque catch generado automáticamente
+			// TODO Bloque catch generado automï¿½ticamente
 			e.printStackTrace();
 		}
 	}
@@ -211,6 +217,13 @@ public class JPanelPerson extends JPanel{
 	public boolean getColisionWhitBox() {
 		boolean colision = false;
 		if(box.intersects( jLabelPerson.getBounds())) {
+			colision = true;
+		}
+		return colision;
+	}
+	public boolean getColisionWhitDoor() {
+		boolean colision = false;
+		if(door.intersects( jLabelPerson.getBounds())) {
 			colision = true;
 		}
 		return colision;

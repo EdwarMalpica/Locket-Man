@@ -2,15 +2,17 @@
  *Controller.java  
  *asdasd
  */
-package com.uptc.LockedMan.controller;
+package controller;
 
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
-
-import com.uptc.LockedMan.model.ModelManager;
-import com.uptc.LockedMan.view.JFramePrincipal;
+import model.Level;
+import model.ModelManager;
+import persistence.ReadJSonLevels;
+import view.JFramePrincipal;
 
 /**
  * @author eduar
@@ -27,6 +29,7 @@ public class Controller implements KeyListener {
 	private ThreadValidateColision threadValidateColision;
 	private Thread threadTakeBox;
 	private ThreadTakeBox threadTakeBoxRun;
+	private ArrayList<Level> levels; 
 	
 	/**
 	 * @param manager el manager a establecer
@@ -53,7 +56,9 @@ public class Controller implements KeyListener {
 		return controller;
 	}
 	public void init() {
+		levels = ReadJSonLevels.getInstanceOf().getLevels();
 		framePrincipal.setVisible(true);
+		setLevelOne();
 		starAnimation();
 	}
 	
@@ -204,11 +209,22 @@ public class Controller implements KeyListener {
 		return framePrincipal.colisionWithPerson();
 	}
 	public boolean getColisionWhitBox() {
-		
 		return framePrincipal.colisionWithBox();
 	}
 	public void dropBox() {
 		framePrincipal.dropBox();
+	}
+	
+	public void setLevelOne() {	
+		framePrincipal.setlevelOne(levels.get(0));
+	}
+	
+	public void setLevelTwo() {
+		framePrincipal.setlevelTwo(levels.get(1));
+	}
+	
+	public void setLevelTree() {
+		framePrincipal.setlevelTree(levels.get(2));
 	}
 	
 	

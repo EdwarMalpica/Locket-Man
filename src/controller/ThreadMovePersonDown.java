@@ -5,10 +5,10 @@
  * @Version 1.00
  * @clase ThreadMovePersonDown.java
  */
-package com.uptc.LockedMan.controller;
+package controller;
 
-import com.uptc.LockedMan.model.ModelManager;
-import com.uptc.LockedMan.view.JFramePrincipal;
+import model.ModelManager;
+import view.JFramePrincipal;
 
 /**
  * @author eduar
@@ -16,11 +16,11 @@ import com.uptc.LockedMan.view.JFramePrincipal;
  */
 public class ThreadMovePersonDown implements Runnable {
 	private JFramePrincipal framePrincipal;
-	private ModelManager manager;
+	
 	
 	public ThreadMovePersonDown(JFramePrincipal framePrincipal,ModelManager manager) {
 		this.framePrincipal = framePrincipal;
-		this.manager = manager;
+		
 	}
 	@Override
 	public void run() {

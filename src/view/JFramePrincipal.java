@@ -2,18 +2,16 @@
  *JFramePrincipal.java  
  *asdasd
  */
-package com.uptc.LockedMan.view;
+package view;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
+
 import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
+
 
 import javax.swing.JFrame;
 
-import com.uptc.LockedMan.constants.Constants;
+import constants.Constants;
+import model.Level;
 
 /**
  * @author eduar
@@ -124,14 +122,14 @@ public class JFramePrincipal extends JFrame {
 		jPanelPerson.dropBox();
 	}
 	
-	public void setlevelOne() {
-		
+	public void setlevelOne(Level level) {
+		jPanelPerson.drawLevel(level);
 	}
-	public void setlevelTwo() {
-		
+	public void setlevelTwo(Level level) {
+		jPanelPerson.drawLevel(level);
 	}
-	public void setlevelTree() {
-		
+	public void setlevelTree(Level level) {
+		jPanelPerson.drawLevel(level);
 	}
 	
 //	@Override 
@@ -153,7 +151,7 @@ public class JFramePrincipal extends JFrame {
 //			try {
 //				Thread.sleep(1000);
 //			} catch (InterruptedException e) {
-//				// TODO Bloque catch generado automáticamente
+//				// TODO Bloque catch generado automï¿½ticamente
 //				e.printStackTrace();
 //			}
 //			incremento ++;

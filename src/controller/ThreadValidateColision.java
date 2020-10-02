@@ -5,10 +5,10 @@
  * @Version 1.00
  * @clase ThreadValidateColision.java
  */
-package com.uptc.LockedMan.controller;
+package controller;
 
-import com.uptc.LockedMan.model.ModelManager;
-import com.uptc.LockedMan.view.JFramePrincipal;
+import model.ModelManager;
+import view.JFramePrincipal;
 
 /**
  * @author eduar
@@ -17,13 +17,13 @@ import com.uptc.LockedMan.view.JFramePrincipal;
 public class ThreadValidateColision implements Runnable{
 
 	private JFramePrincipal framePrincipal;
-	private ModelManager manager;
+	
 
 	private boolean suspend ;
 	
 	public ThreadValidateColision(JFramePrincipal framePrincipal,ModelManager manager) {
 		this.framePrincipal = framePrincipal;
-		this.manager = manager;
+	
 		this.suspend = true;
 		
 	}
@@ -40,7 +40,7 @@ public class ThreadValidateColision implements Runnable{
 						try {
 							Thread.sleep(2);
 						} catch (InterruptedException e) {
-							// TODO Bloque catch generado automáticamente
+							// TODO Bloque catch generado automï¿½ticamente
 							e.printStackTrace();
 						}
 					}
@@ -48,7 +48,7 @@ public class ThreadValidateColision implements Runnable{
 					try {
 						Thread.sleep(620);
 					} catch (InterruptedException e) {
-						// TODO Bloque catch generado automáticamente
+						// TODO Bloque catch generado automï¿½ticamente
 						e.printStackTrace();
 					}
 				}

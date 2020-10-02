@@ -1,8 +1,8 @@
 package locketMan;
 
-import com.uptc.LockedMan.controller.Controller;
-import com.uptc.LockedMan.model.ModelManager;
-import com.uptc.LockedMan.view.JFramePrincipal;
+import controller.Controller;
+import model.ModelManager;
+import view.JFramePrincipal;
 
 public class LocketMan {
 

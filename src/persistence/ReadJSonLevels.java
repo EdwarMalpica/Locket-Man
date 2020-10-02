@@ -5,7 +5,7 @@
  * @Version 1.00
  * @clase ReadJSonLevels.java
  */
-package com.uptc.LockedMan.persistence;
+package persistence;
 
 import java.awt.Rectangle;
 import java.io.FileReader;
@@ -17,8 +17,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.model.Level;
+import constants.Constants;
+import model.Level;
 
 /**
  * @author eduar
@@ -42,11 +42,12 @@ public class ReadJSonLevels {
 	}
 
 	private ReadJSonLevels() {
+		levels = new ArrayList<Level>();
 		parser = new JSONParser();
 		
 		try {
 			
-			Object obj = parser.parse(new FileReader(getClass().getResource("../../../.."+Constants.PATH_SOURCES_LEVEL_BUILD).getPath()));
+			Object obj = parser.parse(new FileReader(getClass().getResource(Constants.PATH_SOURCES_LEVEL_BUILD).getPath()));
 			jsonObject = (JSONObject) obj;
 			array = (JSONArray) jsonObject.get("Niveles");
 			getLevels();
@@ -112,9 +113,10 @@ public class ReadJSonLevels {
 				}
 				floor.add(new Rectangle(x, y, width, height));
 			}
+			
 			for(int w = 0; w<jsA2.size();w++) {
 				jsO3 = (JSONObject) jsA3.get(w);
-				jsA4 = (JSONArray) jsO2.get("Rectangulo");
+				jsA4 = (JSONArray) jsO3.get("Rectangulo");
 				int x = 0,y=0,width=0,height = 0;
 				for(int z = 0;z< jsA4.size();z++) {
 					
@@ -140,8 +142,4 @@ public class ReadJSonLevels {
 	}
 	
 	
-	
-	public static void main(String[] args) {
-		new ReadJSonLevels();
-	}
 }

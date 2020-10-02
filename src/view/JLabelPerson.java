@@ -2,20 +2,17 @@
  *JLabelPerson.java  
  *asdasd
  */
-package com.uptc.LockedMan.view;
+package view;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import com.uptc.LockedMan.constants.Constants;
+
+import constants.Constants;
 
 /**
  * @author eduar
@@ -50,7 +47,8 @@ public class JLabelPerson extends JLabel {
 	 * 
 	 */
 	private void init(String pathImage) {
-		img = new ImageIcon(getClass().getResource("../../../.."+pathImage).getPath());
+		System.out.println(getClass().getResource("../").getPath());
+		img = new ImageIcon(getClass().getResource(pathImage).getPath());
 		Image image = img.getImage();
 		widthImg = image.getWidth(null)/3;
 		heightImg = image.getHeight(null)/4;
@@ -58,11 +56,11 @@ public class JLabelPerson extends JLabel {
 		this.setPreferredSize(new Dimension(widthImg,heightImg));
 		this.setBackground(null);
 		this.setOpaque(false);
-		spriteJump = new ImageIcon(getClass().getResource("../../../.."+Constants.PATH_IMAGE_PERSON_JUMP_RIGHT));
-		spriteStay = new ImageIcon(getClass().getResource("../../../.."+pathImage).getPath());
-		spriteLeft = new ImageIcon(getClass().getResource("../../../.."+Constants.PATH_IMAGE_PERSON_LEFT).getPath());
-		spriteRight = new ImageIcon(getClass().getResource("../../../.."+Constants.PATH_IMAGE_PERSON_RIGHT).getPath());
-		//this.setText("COñoooo");
+		spriteJump = new ImageIcon(getClass().getResource(Constants.PATH_IMAGE_PERSON_JUMP_RIGHT).getPath());
+		spriteStay = new ImageIcon(getClass().getResource(pathImage).getPath());
+		spriteLeft = new ImageIcon(getClass().getResource(Constants.PATH_IMAGE_PERSON_LEFT).getPath());
+		spriteRight = new ImageIcon(getClass().getResource(Constants.PATH_IMAGE_PERSON_RIGHT).getPath());
+		//this.setText("COï¿½oooo");
 	}
 	
 	public void animationStay() {
@@ -96,7 +94,7 @@ public class JLabelPerson extends JLabel {
 //		try {
 //			bufferedImage = ImageIO.read(getClass().getResource("../../../.."+Constants.PATH_IMAGE_PERSON_JUMP_RIGHT));
 //		} catch (IOException e) {
-//			// TODO Bloque catch generado automáticamente
+//			// TODO Bloque catch generado automï¿½ticamente
 //			e.printStackTrace();
 //		}
 	}

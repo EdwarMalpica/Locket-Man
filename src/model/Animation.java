@@ -2,7 +2,7 @@
  *Animation.java  
  *asdasd
  */
-package com.uptc.LockedMan.model;
+package model;
 
 /**
  * @author eduar

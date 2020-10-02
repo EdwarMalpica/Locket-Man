@@ -2,11 +2,11 @@
  *ThreadAnimationPerson.java  
  *asdasd
  */
-package com.uptc.LockedMan.controller;
+package controller;
 
-import com.uptc.LockedMan.constants.Constants;
-import com.uptc.LockedMan.model.ModelManager;
-import com.uptc.LockedMan.view.JFramePrincipal;
+
+import model.ModelManager;
+import view.JFramePrincipal;
 
 /**
  * @author eduar
@@ -28,7 +28,7 @@ public class ThreadAnimationPerson implements Runnable{
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
-				// TODO Bloque catch generado automáticamente
+				// TODO Bloque catch generado automï¿½ticamente
 				e.printStackTrace();
 			}
 			framePrincipal.setIncrement(manager.getIncrementAnimation());

@@ -5,7 +5,7 @@
  * @Version 1.00
  * @clase Level.java
  */
-package com.uptc.LockedMan.model;
+package model;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
