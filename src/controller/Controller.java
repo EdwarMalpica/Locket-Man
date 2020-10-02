@@ -58,7 +58,7 @@ public class Controller implements KeyListener {
 	public void init() {
 		levels = ReadJSonLevels.getInstanceOf().getLevels();
 		framePrincipal.setVisible(true);
-		setLevelOne();
+		setLevelTwo();
 		starAnimation();
 	}
 	
