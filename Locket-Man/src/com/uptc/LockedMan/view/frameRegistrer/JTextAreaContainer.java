@@ -22,6 +22,12 @@ public class JTextAreaContainer extends JTextArea{
 	
 	private BufferedReader br;
 	
+	/**
+	 * contenedor de texto grande
+	 * @param size tamaño que va a tener el textArea
+	 * @param locale localizacion del mismo
+	 * @param pathText direccion donde se encuentra el texto a mostrar
+	 */
 	public JTextAreaContainer(Dimension size, Point locale, String pathText) {
 		super();
 		this.setEditable(false);
@@ -39,15 +45,16 @@ public class JTextAreaContainer extends JTextArea{
 		this.setForeground(Color.blue);
 		this.setSize(size);
 		this.setLocation(locale);
-		chargeText();
+		chargeText(pathText);
 	}
 	
 	/**
 	 * metodo encargado de leer el texto de un archivo y graficarlo en un text area
+	 * metodo obsoleto
 	 */
-	public void chargeText() {
+	public void chargeText(String pathText) {
 		try {
-			File file = new File(pathText);
+			File file = new File(pathText.getClass().getResource(pathText).getPath());
 			br = new BufferedReader(new FileReader(file));
 			String text = "";
 			String auxText;
@@ -58,8 +65,15 @@ public class JTextAreaContainer extends JTextArea{
 			this.setText(text);
 			
 		} catch (Exception e) {
-			System.out.println("El archivo no se encuentra");
+			System.out.println(e);
 		}
 	}
-
+	
+	/**
+	 * añade el texto a este componente
+	 * @param text texto a añadir
+	 */
+	public void setTextAllText(String text) {
+		this.setText(text);
+	}	
 }

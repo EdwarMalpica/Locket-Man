@@ -28,15 +28,15 @@ public class JButtonPlay extends JButton{
 		this.setSize(size);
 		this.setLocation(locale);
 		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		setIcon();
+		setIcon(imageIcon);
 	}
 	
-	public void setIcon() {
+	/**
+	 * añade el icono al boton
+	 * @param imageIcon ruta de la imagen a cambiar
+	 */
+	public void setIcon(String imageIcon) {
 		URL url = this.getClass().getResource(imageIcon);
 		this.setIcon(new ImageIcon(url));
-	}
-	
-	public void setEvent() {
-		
 	}
 }

@@ -29,6 +29,11 @@ public class PanelImage extends JPanel{
 	private URL url;
 	private String pathImageFont;
 	
+	/**
+	 * este panel, dibuja una imagen dentro de el, como fondo de pantalla
+	 * @param pathImageFont ruta donde se encuentra la imagen a graficar
+	 * @param size
+	 */
 	public PanelImage(String pathImageFont, Dimension size) {
 		super();
 		this.setSize(size);

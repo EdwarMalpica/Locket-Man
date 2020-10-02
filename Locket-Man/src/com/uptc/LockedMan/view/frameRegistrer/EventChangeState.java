@@ -11,6 +11,11 @@ public class EventChangeState implements ChangeListener{
 	private Sounds sound;
 	private JSlider slider;
 
+	/**
+	 * evento creado para controlar la intensidad del sonido
+	 * @param sound sonido a controlar
+	 * @param slider slider que maneja la cantidad de sonido
+	 */
 	public EventChangeState(Sounds sound, JSlider slider) {
 		super();
 		this.sound = sound;

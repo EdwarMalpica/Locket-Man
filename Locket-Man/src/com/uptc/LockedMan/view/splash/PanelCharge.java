@@ -14,6 +14,9 @@ public class PanelCharge extends JPanel{
 	private LabelPercent namePlay;
 	private LabelPercent labelVersion;
 
+	/**
+	 * panel que inicia la carga del juego
+	 */
 	public PanelCharge() {
 		this.setLayout(null);
 		this.setSize((int) (Constants.DIMENSION_WINDOW_DEFAULT.getWidth()/3), (int) (Constants.DIMENSION_WINDOW_DEFAULT.getHeight()/3));

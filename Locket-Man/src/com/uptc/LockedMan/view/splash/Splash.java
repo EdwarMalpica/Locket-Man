@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import com.uptc.LockedMan.constants.Constants;
 import com.uptc.LockedMan.sound.Sounds;
+import com.uptc.LockedMan.view.frameRegistrer.RegisterFrame;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
@@ -41,6 +42,9 @@ public class Splash extends JFrame{
 		addComponent();
 	}
 	
+	/**
+	 * añade los componentes de este frame
+	 */
 	private void addComponent() {
 		panelImage = new PanelImage(Constants.PATH_BACKGROUND_SPLASH, this.getSize());
 		this.setContentPane(panelImage);
@@ -106,14 +110,20 @@ public class Splash extends JFrame{
 		freeUpAndEnd();
 	}
 	
+	/**
+	 * reproduce el sonido de fondo
+	 */
 	private void playPrincipalSound() {
 		principalSound.playSound(Constants.PRINCIPAL_SOUND, 100);;
 	}
 	
+	/**
+	 * libera recursos e inicia el frame principal
+	 */
 	public void freeUpAndEnd() {
 		this.setVisible(false);
 		this.dispose();
-		System.exit(0);
+		new RegisterFrame();
 	}
 
 }

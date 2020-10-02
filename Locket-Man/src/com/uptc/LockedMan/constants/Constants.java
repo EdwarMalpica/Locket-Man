@@ -15,7 +15,7 @@ public class Constants {
 	public static final Dimension DIMENSION_PANEL_CONFIG = new Dimension(455, 200);
 	public static final Dimension DIMENSION_BUTTON_CLOSE = new Dimension(32, 32);
 	public static final Dimension DIMENSION_LABEL_ABOUT = new Dimension(150, 40);
-	public static final Dimension DIMENSION_LABEL_INIT_PLAY = new Dimension(60, 30);
+	public static final Dimension DIMENSION_LABEL_INIT_PLAY = new Dimension(180, 42);
 	public static final Dimension DIMENSION_LABEL_CONFIG = new Dimension(70, 30);
 	
 	//Localizaciones
@@ -30,6 +30,7 @@ public class Constants {
 	public static final int SIZE_FONT_MARIO_PERCENT = 100;
 	public static final int SIZE_WELLCOME_MESSAGE = 62;
 	public static final int SIZE_FONT_VERSION = 28;
+	public static final int SIZE_FONT_PLAY = 40;
 	public static final int SIZE_FONT_OPTIONS = 20;
 	
 	//Mensajes
@@ -57,10 +58,11 @@ public class Constants {
 	public static final String PATH_BUTTON_CONFIG = "../../resources/buttonConfig.png";
 	public static final String PATH_BUTTON_ABOUT = "../../resources/about.png";
 	public static final String PATH_BUTTON_CLOSE = "../../resources/btnClose.png";
-	public static final String PATH_BUTTON_LANGUAGE = "../../resources/lenguage.png";
+	public static final String PATH_BUTTON_LANGUAGE_ES = "../../resources/español.png";
+	public static final String PATH_BUTTON_LANGUAGE_EN = "../../resources/ingles.png";
 	public static final String PATH_LABEL_SOUND = "../../resources/sonido.png";
 	public static final String PATH_BUTTON_CLOSE_BLUE = "../../resources/back.png";
-	public static final String PATH_FILE_ABOUT_US = "C:\\Users\\SAMSUNG\\git\\Locket-Ma\\Locket-Man\\src\\com\\uptc\\LockedMan\\persistence\\aboutUs.txt";
+	public static final String PATH_FILE_ABOUT_US = "../persistence/aboutUsES.txt";
 	
 	//Nombres de Fuentes...
 	public static final String PATH_FONT_MARIO = "Mario-Kart-DS.ttf";

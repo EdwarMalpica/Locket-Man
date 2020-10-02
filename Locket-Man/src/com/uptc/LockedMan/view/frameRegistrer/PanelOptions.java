@@ -20,6 +20,11 @@ public class PanelOptions extends JPanel{
 	private JButtonPlay buttonLanguage;
 	private LabelAvatar labelSound;
 
+	/**
+	 * panel para las opciones del juego
+	 * @param size tamaño del panel
+	 * @param locale localizacion del panel
+	 */
 	public PanelOptions(Dimension size, Point locale) {
 		super();
 		this.setLayout(null);
@@ -34,7 +39,7 @@ public class PanelOptions extends JPanel{
 		this.setSize(size);
 		this.setLocation(locale);
 		
-		buttonLanguage = new JButtonPlay(Constants.DIMENSION_BUTTON_CONFIG, Constants.PATH_BUTTON_LANGUAGE, new Point(20, 10));
+		buttonLanguage = new JButtonPlay(Constants.DIMENSION_BUTTON_CONFIG, Constants.PATH_BUTTON_LANGUAGE_ES, new Point(20, 10));
 		labelSound = new LabelAvatar(Constants.PATH_LABEL_SOUND, new Point(20, (int) (this.getHeight()/3 - 32) * 2));
 		labelSound.setSize(Constants.DIMENSION_BUTTON_CONFIG);
 		
@@ -51,6 +56,9 @@ public class PanelOptions extends JPanel{
 		this.add(buttonLanguage);
 	}
 	
+	/**
+	 * inicializa el Slider para posteriormente agregarlo
+	 */
 	public void initSlider() {
 		volume.setMajorTickSpacing(2);
         volume.setMaximum(10);

@@ -40,6 +40,9 @@ public class EventConfig implements ActionListener{
 		anim.startAnimation();
 	}
 	
+	/**
+	 * reproduce un efecto de click al presionar el boton
+	 */
 	public void playSoundEffect() {
 		sound = new Sounds();
 		sound.playSound(Constants.CLICK_SOUND, 1);

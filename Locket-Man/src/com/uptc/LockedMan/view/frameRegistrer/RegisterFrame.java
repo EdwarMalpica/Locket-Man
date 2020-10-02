@@ -23,6 +23,9 @@ public class RegisterFrame extends JFrame{
 	private PanelImage panelImage;
 	private PanelContainer panelContainer;
 
+	/**
+	 * frame del registro o inicio del juego principal
+	 */
 	public RegisterFrame() {
 		this.setUndecorated(true);
 		this.setSize((int) Constants.DIMENSION_WINDOW_DEFAULT.getWidth()/3, (int) Constants.DIMENSION_WINDOW_DEFAULT.getHeight()/3);
@@ -41,10 +44,16 @@ public class RegisterFrame extends JFrame{
 		this.setContentPane(panelContainer);
 	}
 	
+	/**
+	 * inicia el control del volumen seteando un evento al jSlider
+	 */
 	public void setMasterVolumen() {
 		panelContainer.getPanelOptions().getVolume().addChangeListener(new EventChangeState(sound, panelContainer.getPanelOptions().getVolume()));
 	}
 	
+	/**
+	 * inicializa el psonido principal
+	 */
 	public void initPrincipalSound() {
 		sound = new Sounds();
 		try {

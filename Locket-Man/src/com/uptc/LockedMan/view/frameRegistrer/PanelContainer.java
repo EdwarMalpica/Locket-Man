@@ -17,7 +17,11 @@ import com.uptc.LockedMan.constants.Constants;
 import com.uptc.LockedMan.view.frameRegistrer.JButtonPlay;
 import com.uptc.LockedMan.view.splash.LabelPercent;
 
+import utilities.PropertiesManager;
+
 public class PanelContainer extends JPanel{
+	
+	private PropertiesManager propertiesManager;
 	
 	private PanelAbout panelAbout;
 	private PanelOptions optionsPanel;
@@ -34,6 +38,11 @@ public class PanelContainer extends JPanel{
 	private Dimension size;
 	private Point locale;
 	
+	/**
+	 * este panel se encarga de mantener todos los botones del frame de registro
+	 * @param size tamaño del panel
+	 * @param locale localizacion del panel
+	 */
 	public PanelContainer(Dimension size, Point locale) {
 		super();
 		this.setLayout(null);
@@ -42,7 +51,9 @@ public class PanelContainer extends JPanel{
 		this.setBackground(Color.black);
 		this.size = size;
 		this.locale = locale;
+		this.propertiesManager = new PropertiesManager();
 		init();
+		updateAllTexts();
 		setEvents();
 	}
 	
@@ -77,11 +88,35 @@ public class PanelContainer extends JPanel{
 		buttonAbout = new JButtonPlay(Constants.DIMENSION_BUTTON_CONFIG, Constants.PATH_BUTTON_ABOUT, new Point(localeAboutButton.x * 8, localeAboutButton.y));
 		this.add(buttonAbout);
 		
-		labelAbout = new LabelPercent(Constants.MESSAGE_ABOUT_US, Constants.SIZE_FONT_OPTIONS);
+		labelAbout = new LabelPercent("", Constants.SIZE_FONT_OPTIONS);
 		labelAbout.setSize(Constants.DIMENSION_LABEL_ABOUT);
 		labelAbout.setLocation(new Point((buttonAbout.getX() + buttonAbout.getWidth()/2) - labelAbout.getWidth()/2, buttonAbout.getY() + buttonAbout.getHeight()));
 		labelAbout.setForeground(Color.black);
+		labelAbout.setHorizontalAlignment((int) CENTER_ALIGNMENT);
 		this.add(labelAbout);
+		
+		labelInitPlay = new LabelPercent("", Constants.SIZE_FONT_PLAY);
+		labelInitPlay.setSize(Constants.DIMENSION_LABEL_INIT_PLAY);
+		labelInitPlay.setLocation(new Point((buttonPlay.getX() + buttonPlay.getWidth()/2) - labelInitPlay.getWidth()/2, buttonPlay.getY() + buttonPlay.getHeight()));
+		labelInitPlay.setForeground(Color.black);
+		labelInitPlay.setHorizontalAlignment((int) CENTER_ALIGNMENT);
+		this.add(labelInitPlay);
+		
+		labelConfig = new LabelPercent("", Constants.SIZE_FONT_OPTIONS);
+		labelConfig.setSize(Constants.DIMENSION_LABEL_ABOUT);
+		labelConfig.setLocation(new Point((buttonConfig.getX() + buttonConfig.getWidth()/2) - labelConfig.getWidth()/2, buttonConfig.getY() + buttonConfig.getHeight()));
+		labelConfig.setForeground(Color.black);
+		labelConfig.setHorizontalAlignment((int) CENTER_ALIGNMENT);
+		this.add(labelConfig);
+	}
+	
+	/**
+	 * actualiza todos los textos
+	 */
+	public void updateAllTexts() {
+		labelConfig.setTextThis(propertiesManager.getMessageButtonOptions());
+		labelAbout.setTextThis(propertiesManager.getMessageAbout());
+		labelInitPlay.setTextThis(propertiesManager.getMessagePlay());
 	}
 	
 	public void addComponent(Component component) {
@@ -113,11 +148,15 @@ public class PanelContainer extends JPanel{
 		return buttonAbout;
 	}
 	
+	/**
+	 * añade los eventos de los botones al panel
+	 */
 	public void setEvents() {
 		getButtonConfig().addActionListener(new EventConfig(optionsPanel, Constants.ADVANCE, Constants.MOVING_SIDE, optionsPanel.getX(), 0, true));
 		getButtonAbout().addActionListener(new EventConfig(scrollPane, Constants.BACK, Constants.UP_OR_DOWN, scrollPane.getY(), (int)this.getHeight()/2, true));
 		panelAbout.getButtonClose().addActionListener(new EventConfig(scrollPane, Constants.ADVANCE, Constants.UP_OR_DOWN, this.getHeight()/2, this.getHeight(), false));
 		optionsPanel.getButtonClose().addActionListener(new EventConfig(optionsPanel, Constants.BACK, Constants.MOVING_SIDE, 0, (0 - this.getWidth()/4), false));
+		optionsPanel.getButtonLanguage().addActionListener(new EventChangeLanguaje(this, propertiesManager, optionsPanel.getButtonLanguage(), null));
 	}
 	
 	public PanelOptions getPanelOptions() {

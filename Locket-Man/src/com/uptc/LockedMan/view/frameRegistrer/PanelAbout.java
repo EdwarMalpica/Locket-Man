@@ -14,6 +14,10 @@ public class PanelAbout extends JPanel{
 	private JTextAreaContainer textArea;
 	private JButtonPlay buttonClose;
 	
+	/**
+	 * panel que contiene el textArea en donde se va a poner la informacion del programa
+	 * @param size tamaño del panel
+	 */
 	public PanelAbout(Dimension size) {
 		this.setSize(size);
 		this.setOpaque(true);
@@ -31,5 +35,9 @@ public class PanelAbout extends JPanel{
 
 	public JButtonPlay getButtonClose() {
 		return buttonClose;
+	}
+
+	public JTextAreaContainer getTextArea() {
+		return textArea;
 	}
 }

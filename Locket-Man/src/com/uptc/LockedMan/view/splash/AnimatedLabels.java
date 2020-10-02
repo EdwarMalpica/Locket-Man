@@ -161,19 +161,33 @@ public class AnimatedLabels {
 		});
 	}
 	
+	/**
+	 * inicia la animacion del componente
+	 */
 	public void startAnimation() {
 		anim();
 		thread.start();
 	}
 	
+	/**
+	 * nos dice si la animacion ya termino o esta en proceso
+	 * @return
+	 */
 	public boolean getFinish() {
 		return finish;
 	}
 	
+	/**
+	 * cambia el valor de finalizado a verdadero
+	 * @param finish
+	 */
 	public void setFinish(boolean finish) {
 		this.finish = finish;
 	}
 	
+	/**
+	 * inicia la animacion con cambio de imagen
+	 */
 	public void startAndChange() {
 		animAndChangeImage();
 		thread.start();
