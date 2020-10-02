@@ -1,0 +1,23 @@
+     
+  LOCKED - MAN 
+
+  Este programa esta disenado por la compania 
+  desarrolladora de juegos JEM. El juego se 
+  trata de un personaje ficticio encargado de 
+  salir del juego. Solamente debe manipular al 
+  jugador con las teclas de direccion en su pc.
+  
+
+  Gracias por preferirnos
+  
+
+  Compania de juegos JEM 
+  
+  
+  			version 1.0
+  			
+  
+  		Copyring 2020   
+  	(Todos los derechos reservados)
+  
+  							

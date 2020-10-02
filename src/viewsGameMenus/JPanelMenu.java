@@ -28,15 +28,18 @@ public class JPanelMenu extends JPanel{
 	
 	
 	public void setButton(String textButton,String buttonName) {
+
 		JButtonOption a = new JButtonOption(this, textButton,buttonName);
 		a.setSizeMainMenu();
 		this.add(a);	
 	}
 
 
-	
 
-
-	
-	
+	/**
+	 * @return the container
+	 */
+	public Container getContainers() {
+		return container;
+	}	
 }

@@ -13,19 +13,22 @@ public class JLabelTextGame extends JLabel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3986428497904048599L;
 
+	private static final long serialVersionUID = -3986428497904048599L;
 	public JLabelTextGame() {
 		super();
 		init();
 	}
 	private void init() {
+
 		setNormalFont();
+
 	}
 	public void setSizeComponent(Component component) {
 		this.setPreferredSize(new Dimension(component.getWidth(),30));
 	}
 	
+
 	public void setAnimationByFontSize() {
 		this.setFont(ConstanBackground.SUMMER_FONT_SMALLSIZE_2);
 		this.setForeground(Color.white);
@@ -36,5 +39,6 @@ public class JLabelTextGame extends JLabel {
 		this.setForeground(Color.white);
 	}
 	
+
 
 }

@@ -20,8 +20,10 @@ public class ConstanBackground {
 		public static final Font TIMER_FONT = new FontGame().loadFont(PATH_FONT_TIMER, 60);
 		public static final Font TIMER_FONT_1 = new FontGame().loadFont(PATH_FONT_TIMER, 30);
 		public static final Font SUMMER_FONT_1 = new FontGame().loadFont(PATH_BUTTON_FONT, 30);
+
 		public static final Font SUMMER_FONT_SMALLSIZE = new FontGame().loadFont(PATH_BUTTON_FONT, 20);
 		public static final Font SUMMER_FONT_SMALLSIZE_2 = new FontGame().loadFont(PATH_BUTTON_FONT, 40);
+
 
 		
 		//-----------------------------------------------------------------------------------------------
@@ -29,6 +31,7 @@ public class ConstanBackground {
 		public static final String TIMER_NAME = "TIMER";
 		public static final String START_VALUE_TIMER = "00:00";
 		public static final int[] BOUNDS_TIMER = {969,53,273,80};
+
 	//Buttons Name
 		public static final String[] NAMES_BUTTONS_MAIN_MENU = {"txtMainMenu","btnRegistry","btnQuickPlay","btnOptions","btnExit"};
 		public static final String[] NAME_BUTTONS_QUICKPLAY_MENU = {"txtQuickPlay","btnLevel1","btnLevel2","btnReturn"};
@@ -53,7 +56,7 @@ public class ConstanBackground {
 	
 		
 		
-		
+
 
 	
 

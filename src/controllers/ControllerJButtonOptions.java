@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Window;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import java.util.ArrayList;
 
 import backgroundGame.ConstanBackground;
@@ -17,22 +18,32 @@ import viewsGameMenus.JButtonOption;
 import viewsGameMenus.JFrameRegistry;
 
 
+import backgroundGame.ConstanBackground;
+import backgroundGame.JFrameBackGround;
+import utilities.LoaderWindow;
+import utilities.PropertiesManager;
+import viewsGameMenus.JButtonOption;
+import viewsGameMenus.JPanelMenu;
+import viewsGameMenus.WindowMenu; 
+
+
 public class ControllerJButtonOptions implements MouseListener{
 	
 	private static ControllerJButtonOptions myControllerJButtonOptions = null;
 	private Window windowMenuCurrent;
 	private LoaderWindow loaderWindow;
+
 	@SuppressWarnings("unused")
 	private FileWriterGame fileWriterGame;
 	private Player player; 
+
 	
 	public ControllerJButtonOptions() {
 		super(); 
 		loaderWindow = new LoaderWindow();
 	}
 	
-	
-	
+
 	public  static ControllerJButtonOptions getControllerJButtonOptions () {
 		 if (myControllerJButtonOptions ==null) {		 
 			 myControllerJButtonOptions = new  ControllerJButtonOptions();
@@ -48,6 +59,7 @@ public class ControllerJButtonOptions implements MouseListener{
 			quickPlayFuction((JButtonOption)e.getComponent());
 			optionsMenuFuction((JButtonOption)e.getComponent());
 			setFuctionChangeIdiom((JButtonOption)e.getComponent());
+
 			setRegistryFuction((JButtonOption)e.getComponent());
 
 		} catch (InterruptedException e1) {
@@ -58,18 +70,20 @@ public class ControllerJButtonOptions implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+
 		((JButtonOption) e.getComponent()).efectHover(1f, 0.2f, 0.6f, 10, false);
+
 
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		
 
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+
 		((JButtonOption) e.getComponent()).efectHover(0.5f, 1f, 0.03f, 10, true);
 			setAnimationSizeFontButtons((JButtonOption) e.getComponent());
 		
@@ -82,12 +96,14 @@ public class ControllerJButtonOptions implements MouseListener{
 	}
 	
 	
+
 	
 	
 	
 	private void setFuctionButtons(JButtonOption jButtonOption) {
 		String btnName = jButtonOption.getName();
 		switch (btnName) {
+
 		case ConstanBackground.NAME_BUTTON_EXIT:
 			exitFuction(jButtonOption);
 			break;
@@ -98,6 +114,7 @@ public class ControllerJButtonOptions implements MouseListener{
 			showOptionMenu();
 			break;			
 		case ConstanBackground.NAME_BUTTON_REGISTRY:
+
 			showRegistryWindow();
 		default:
 			break;
@@ -149,6 +166,7 @@ public class ControllerJButtonOptions implements MouseListener{
 		jButtonOption.getjLabelTextButton().setNormalFont();
 	}
 	
+
 	/**
 	 * Despliega el menu principal
 	 */
@@ -178,6 +196,7 @@ public class ControllerJButtonOptions implements MouseListener{
 	
 	private void optionsMenuFuction(JButtonOption jButtonOption) {
 		switch (jButtonOption.getName()) {
+
 		case ConstanBackground.NAME_BUTTON_VOLUME:
 			showTop3ResultsWindow();
 		case ConstanBackground.NAME_BUTTON_LANGUAGE:
@@ -187,6 +206,7 @@ public class ControllerJButtonOptions implements MouseListener{
 			showHelpWindow();
 			break;
 		case ConstanBackground.NAME_BUTTON_RETURN:
+
 			showMainMenu();
 			break;
 		default:
@@ -200,11 +220,13 @@ public class ControllerJButtonOptions implements MouseListener{
 		windowMenuCurrent =	loaderWindow.getWindowLanguage();
 		windowMenuCurrent.setVisible(true);
 	}
+
 	private void showTop3ResultsWindow() {
 		windowMenuCurrent = loaderWindow.getWindowTop3();
 		//Poner el metodo addResults Para que cargue la matriz
 		windowMenuCurrent.setVisible(true);
 	}
+
 	/**
 	 * Muestra el menu de ayuda
 	 */
@@ -212,9 +234,11 @@ public class ControllerJButtonOptions implements MouseListener{
 		windowMenuCurrent = loaderWindow.getWindowHelp();
 		windowMenuCurrent.setVisible(true);
 	}
+
 	/**
 	 * Muestra la ventana de registro, cierra la venta actual para mostrar la de registro
 	 */
+
 	
 	private void showRegistryWindow() {
 		windowMenuCurrent = loaderWindow.getWindow();
@@ -227,18 +251,25 @@ public class ControllerJButtonOptions implements MouseListener{
 	private void setFuctionChangeIdiom(JButtonOption jButtonOption) {
 		PropertiesManager propertiesManager = PropertiesManager.getPropertiesManager();
 		switch (jButtonOption.getName()) {
+
 		case ConstanBackground.NAME_BUTTON_SPANISH:
+
+		case "btnSpanish":
+
 			propertiesManager.setSpanishLanguage();			
 			loaderWindow.updateLanguageSpanish();
 			showMainMenu();
 			break;
+
 		case ConstanBackground.NAME_BUTTON_ENGLISH:
+
 			propertiesManager.setEnglishLanguage();
 			loaderWindow.updateLanguageEnglish();
 			showMainMenu();
 			break;
 		}
 	}
+
 	
 	/**
 	 * Funcion que realizara cuando haga click en el boton de aceptar 
@@ -282,4 +313,5 @@ public class ControllerJButtonOptions implements MouseListener{
 		ArrayList<GameMatch> listPlayerMatches = player.getGameMatchList();
 		listPlayerMatches.add(new GameMatch(levelName, time));
 	}
+
 }

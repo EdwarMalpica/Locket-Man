@@ -16,6 +16,7 @@ public abstract class WindowGame extends Window {
 	/**
 	 * 
 	 */
+
 	private static final long serialVersionUID = 846571355306691448L;
 	protected JPanel jPanelBody;
 	protected ImageIcon img;
@@ -26,8 +27,10 @@ public abstract class WindowGame extends Window {
 	}
 
 	protected void init() {
+
 		jPanelBody = new JPanel();
 		this.add(jPanelBody);
+
 		dimension = Toolkit.getDefaultToolkit().getScreenSize();
 		setPropertiesWindow();
 		verifyCorrectSize();

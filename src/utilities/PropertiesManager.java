@@ -6,17 +6,19 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 
-
 public class PropertiesManager {
 
 	private ResourceBundle resourceBundle;
+	
 	private static PropertiesManager myPropertiesManager;
-	public static final String PATH_PROPERTIES_FILE_ES = "../resources/propertiesMenuMessages/propertiesMenuMessages_es_CO.properties";
-	public static final String PATH_PROPERTIES_FILE_EN = "../resources/propertiesMenuMessages/propertiesMenuMessages_en_GB.properties";
+	public static final String PATH_PROPERTIES_FILE_ES = "../resources/propertiesMenuMessages/propertiesMenuMessagesesCO.properties";
+	public static final String PATH_PROPERTIES_FILE_EN = "../resources/propertiesMenuMessages/propertiesMenuMessagesenGB.properties";
 
-	public PropertiesManager() {
+	private PropertiesManager() {
 		init();		
 	}
+	
+
 	public static PropertiesManager getPropertiesManager () {
 		 if (myPropertiesManager ==null) {		 
 			 myPropertiesManager = new  PropertiesManager();
@@ -25,14 +27,17 @@ public class PropertiesManager {
 	}
 	
 	private void init() {
-		
+
 		try {
 			String languageSystem = System.getProperty("user.language");
 			if (languageSystem.equals("es")) {
-		
 				FileInputStream fis = new FileInputStream(getClass().getResource(PATH_PROPERTIES_FILE_ES).getPath());
 				resourceBundle = new PropertyResourceBundle(fis);
-			} else {
+			} else if(languageSystem.equals("in")){
+				FileInputStream fis = new FileInputStream(getClass().getResource(PATH_PROPERTIES_FILE_EN).getPath());
+				resourceBundle = new PropertyResourceBundle(fis);
+			}else {
+
 				FileInputStream fis = new FileInputStream(getClass().getResource(PATH_PROPERTIES_FILE_EN).getPath());
 				resourceBundle = new PropertyResourceBundle(fis);
 			}
@@ -117,6 +122,7 @@ public class PropertiesManager {
 	public String getBtnEnglishMessage() {
 		return resourceBundle.getString("btnEnglishMessage");
 	}
+
 	public String getBtnAceptMessage() {
 		return resourceBundle.getString("btnAccept");
 	}
@@ -127,18 +133,36 @@ public class PropertiesManager {
 		return resourceBundle;
 	}
 	
+//--------------------------------------------------------------------------------------------------------------
+// Ahora obtenemos los mensajes para el spash y el frame de inicio	
 	
+	public String getMessageWelcome() {
+		return resourceBundle.getString("labelWelcome");
+	}
 	
+	public String getMessageTo() {
+		return resourceBundle.getString("letterA");
+	}
 	
+	public String getMessageNamePlay() {
+		return resourceBundle.getString("namePlay");
+	}
 	
+	public String getMessageButtonOptions() {
+		System.out.println( resourceBundle.containsKey("buttonOpcion"));
+		return resourceBundle.getString("buttonOpcion");
+	} 
 	
+	public String getMessagePlay() {
+		return resourceBundle.getString("buttonPlay");
+	}
 	
+	public String getMessageAbout() {
+		return resourceBundle.getString("buttonAboutUs");
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public String getExitMessage() {
+		return resourceBundle.getString("exitButton");
+	}
+
 }
